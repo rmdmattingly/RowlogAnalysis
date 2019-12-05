@@ -1,6 +1,6 @@
 import requests
-from pprint import pprint
 from enum import Enum
+from pprint import pprint
 
 class WorkoutTypes(Enum):
     Erg = 0
@@ -9,7 +9,6 @@ class WorkoutTypes(Enum):
     Swim = 3
 
 ### useful functions ###
-
 def getData(url):
     response = requests.get(url)
     return response.json()
