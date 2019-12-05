@@ -1,5 +1,4 @@
 import requests
-import collections
 from pprint import pprint
 
 ### useful functions ###
