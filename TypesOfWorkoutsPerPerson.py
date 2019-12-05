@@ -29,8 +29,6 @@ def getTypesOfWorkoutsPerPerson(workoutsData):
                 typesOfWorkoutsPerPerson[name][activity.name] += 1
     return typesOfWorkoutsPerPerson
 
-
-
 ### Script begins below ###
 url = 'https://quikfo.com/rowlog/api/workouts'
 workoutsData = getData(url)
