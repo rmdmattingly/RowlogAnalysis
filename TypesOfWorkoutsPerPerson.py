@@ -1,5 +1,6 @@
 import requests
 from enum import Enum
+from GetData import getData
 from pprint import pprint
 
 class WorkoutTypes(Enum):
@@ -8,14 +9,8 @@ class WorkoutTypes(Enum):
     Run = 2
     Swim = 3
 
-### useful functions ###
-def getData(url):
-    response = requests.get(url)
-    return response.json()
-
 def getTypesOfWorkoutsPerPerson(workoutsData):
     typesOfWorkoutsPerPerson = {}
-
     for workout in workoutsData:
         name = workout['name']
         type = workout['type']
