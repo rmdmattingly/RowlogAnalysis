@@ -1,13 +1,7 @@
 import requests
-from enum import Enum
-from GetData import getData
 from pprint import pprint
-
-class WorkoutTypes(Enum):
-    Erg = 0
-    Bike = 1
-    Run = 2
-    Swim = 3
+from GetData import getData
+from WorkoutTypes import WorkoutTypes
 
 def getTypesOfWorkoutsPerPerson(workoutsData):
     typesOfWorkoutsPerPerson = {}

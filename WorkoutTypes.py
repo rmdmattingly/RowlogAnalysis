@@ -1,0 +1,7 @@
+from enum import Enum
+
+class WorkoutTypes(Enum):
+    Erg = 0
+    Bike = 1
+    Run = 2
+    Swim = 3
