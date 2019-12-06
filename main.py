@@ -1,4 +1,5 @@
 import sys
+import json
 from pprint import pprint
 
 def parseInput():
@@ -28,6 +29,10 @@ switcher = {
  
 def serviceSwitch(argument):
     service = switcher.get(argument, invalidService)
-    return service()
+    try:
+        return service()
+    except:
+        return 'Error occurred'
 
-pprint(serviceSwitch(parseInput()))
+output = serviceSwitch(parseInput())
+print(json.dumps(output))
