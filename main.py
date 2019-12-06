@@ -15,7 +15,7 @@ def workoutsPerPerson():
     return WorkoutsPerPerson.run(getWorkoutData())
 
 def typesOfWorkoutsPerPerson():
-    from Core.WorkoutTypes import Activities
+    from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
     from Service import TypesOfWorkoutsPerPerson
     return TypesOfWorkoutsPerPerson.run(getWorkoutData(), Activities)
