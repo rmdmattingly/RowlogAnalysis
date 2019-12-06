@@ -1,7 +1,5 @@
 import requests
-from pprint import pprint
 
-### useful functions ###
 def sortDictionaryByValues(dictionary):
     return sorted(dictionary.items(), key=lambda kv: kv[1], reverse=True)
 
@@ -18,8 +16,7 @@ def getWorkoutsPerPerson(workoutsData):
         workoutsPerPerson[name] += 1
     return sortDictionaryByValues(workoutsPerPerson)
 
-### Script begins below ###
-url = 'https://quikfo.com/rowlog/api/workouts'
-workoutsData = getData(url)
-workoutsPerPerson = getWorkoutsPerPerson(workoutsData)
-pprint(workoutsPerPerson)
+def run():
+    url = 'https://quikfo.com/rowlog/api/workouts'
+    workoutsData = getData(url)
+    return getWorkoutsPerPerson(workoutsData)

@@ -1,7 +1,4 @@
 import requests
-from pprint import pprint
-from GetData import getData
-from WorkoutTypes import WorkoutTypes
 
 def getTypesOfWorkoutsPerPerson(workoutsData):
     typesOfWorkoutsPerPerson = {}
@@ -17,8 +14,7 @@ def getTypesOfWorkoutsPerPerson(workoutsData):
                 typesOfWorkoutsPerPerson[name][activity.name] += 1
     return typesOfWorkoutsPerPerson
 
-### Script begins below ###
-url = 'https://quikfo.com/rowlog/api/workouts'
-workoutsData = getData(url)
-typesOfWorkoutsPerPerson = getTypesOfWorkoutsPerPerson(workoutsData)
-pprint(typesOfWorkoutsPerPerson)
+def run():
+    url = 'https://quikfo.com/rowlog/api/workouts'
+    workoutsData = getData(url)
+    return getTypesOfWorkoutsPerPerson(workoutsData)
