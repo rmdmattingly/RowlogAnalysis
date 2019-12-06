@@ -27,7 +27,7 @@ switcher = {
 }
  
 def serviceSwitch(argument):
-    func = switcher.get(argument, invalidService)
-    return func()
+    service = switcher.get(argument, invalidService)
+    return service()
 
 pprint(serviceSwitch(parseInput()))
