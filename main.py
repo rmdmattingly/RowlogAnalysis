@@ -10,15 +10,15 @@ def invalidService():
     return 'Invalid Service'
 
 def workoutsPerPerson():
-    from Data import RowlogApi
     from Service import WorkoutsPerPerson
-    return WorkoutsPerPerson.run(RowlogApi.getWorkoutData())
+    from Data.RowlogApi import getWorkoutData
+    return WorkoutsPerPerson.run(getWorkoutData())
 
 def typesOfWorkoutsPerPerson():
-    from Data import RowlogApi
-    from Core import WorkoutTypes
+    from Core.WorkoutTypes import Activities
+    from Data.RowlogApi import getWorkoutData
     from Service import TypesOfWorkoutsPerPerson
-    return TypesOfWorkoutsPerPerson.run(RowlogApi.getWorkoutData())
+    return TypesOfWorkoutsPerPerson.run(getWorkoutData(), Activities)
  
 switcher = {
     'workoutsPerPerson': workoutsPerPerson,
