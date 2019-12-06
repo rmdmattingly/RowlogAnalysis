@@ -1,5 +1,3 @@
-import requests
-
 def getTypesOfWorkoutsPerPerson(workoutsData):
     typesOfWorkoutsPerPerson = {}
     for workout in workoutsData:
@@ -14,7 +12,5 @@ def getTypesOfWorkoutsPerPerson(workoutsData):
                 typesOfWorkoutsPerPerson[name][activity.name] += 1
     return typesOfWorkoutsPerPerson
 
-def run():
-    url = 'https://quikfo.com/rowlog/api/workouts'
-    workoutsData = getData(url)
+def run(workoutsData):
     return getTypesOfWorkoutsPerPerson(workoutsData)
