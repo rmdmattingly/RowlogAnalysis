@@ -15,18 +15,18 @@ def ergMetersPerDay():
     from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
     from Service import ErgMetersPerDay
-    return ErgMetersPerDay.run(getWorkoutData(orderBy='time'), Activities, DateParser)
+    return ErgMetersPerDay.run(getWorkoutData(orderBy='time', comment=''), Activities, DateParser)
 
 def typesOfWorkoutsPerPerson():
     from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
     from Service import TypesOfWorkoutsPerPerson
-    return TypesOfWorkoutsPerPerson.run(getWorkoutData(orderBy='wid'), Activities)
+    return TypesOfWorkoutsPerPerson.run(getWorkoutData(orderBy='wid', comment=''), Activities)
 
 def workoutsPerPerson():
     from Data.RowlogApi import getWorkoutData
     from Service import WorkoutsPerPerson
-    return WorkoutsPerPerson.run(getWorkoutData(orderBy='wid'))
+    return WorkoutsPerPerson.run(getWorkoutData(orderBy='wid', comment=''))
  
 switcher = {
     'invalidService': invalidService,
