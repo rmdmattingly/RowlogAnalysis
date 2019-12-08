@@ -11,11 +11,19 @@ def invalidService():
     return 'Invalid Service'
 
 def ergMetersPerDay():
-    from Core import DateParser
+    from Core import DateManager
     from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
     from Service import ErgMetersPerDay
-    return ErgMetersPerDay.run(getWorkoutData(orderBy='time'), Activities, DateParser)
+    return ErgMetersPerDay.run(getWorkoutData(orderBy='time'), Activities, DateManager)
+
+def IndividualContributions():
+    from Core import DateManager
+    from Core.Activities import Activities
+    from Data.RowlogApi import getPeopleData
+    from Data.RowlogApi import getWorkoutData
+    from Service import IndividualContributions
+    return IndividualContributions.run(getWorkoutData(orderBy='time'), getPeopleData(), DateManager)
 
 def typesOfWorkoutsPerPerson():
     from Core.Activities import Activities
@@ -29,19 +37,16 @@ def workoutsPerPerson():
     return WorkoutsPerPerson.run(getWorkoutData(orderBy='wid'))
  
 switcher = {
-    'invalidService': invalidService,
     'ergMetersPerDay': ergMetersPerDay,
+    'invalidService': invalidService,
+    'individualContributions': IndividualContributions,
     'typesOfWorkoutsPerPerson': typesOfWorkoutsPerPerson,
     'workoutsPerPerson': workoutsPerPerson
 }
  
 def serviceSwitch(argument):
     service = switcher.get(argument, invalidService)
-    try:
-        return service()
-    except Exception as e:
-        print(e)
-        return 'Error occurred'
+    return service()
 
 output = serviceSwitch(parseInput())
 print(json.dumps(output))
