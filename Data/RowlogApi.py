@@ -1,10 +1,5 @@
 import requests
 
-def getWorkoutData():
-    url = 'https://quikfo.com/rowlog/api/workouts'
-    response = requests.get(url)
-    return response.json()
-
 # accepts orderyBy = time, real_meters, scored_meters, or avg_heartrate.  Only returns desc, reverse the response for asc (see: Service.ErgMetersPerDay.py)
 def getWorkoutData(orderBy):
     url = 'https://quikfo.com/rowlog/api/workouts?orderBy=' + orderBy

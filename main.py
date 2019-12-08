@@ -21,12 +21,12 @@ def typesOfWorkoutsPerPerson():
     from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
     from Service import TypesOfWorkoutsPerPerson
-    return TypesOfWorkoutsPerPerson.run(getWorkoutData(), Activities)
+    return TypesOfWorkoutsPerPerson.run(getWorkoutData(orderBy='wid'), Activities)
 
 def workoutsPerPerson():
     from Data.RowlogApi import getWorkoutData
     from Service import WorkoutsPerPerson
-    return WorkoutsPerPerson.run(getWorkoutData())
+    return WorkoutsPerPerson.run(getWorkoutData(orderBy='wid'))
  
 switcher = {
     'invalidService': invalidService,
