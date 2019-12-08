@@ -10,35 +10,42 @@ def parseInput():
 def invalidService():
     return 'Invalid Service'
 
-def workoutsPerPerson():
-    from Service import WorkoutsPerPerson
+def ergMetersPerDay():
+    from Core import DateManager
+    from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
-    return WorkoutsPerPerson.run(getWorkoutData())
+    from Service import ErgMetersPerDay
+    return ErgMetersPerDay.run(getWorkoutData(orderBy='time'), Activities, DateManager)
+
+def IndividualContributions():
+    from Core import DateManager
+    from Core.Activities import Activities
+    from Data.RowlogApi import getPeopleData
+    from Data.RowlogApi import getWorkoutData
+    from Service import IndividualContributions
+    return IndividualContributions.run(getWorkoutData(orderBy='time'), getPeopleData(), DateManager)
 
 def typesOfWorkoutsPerPerson():
     from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
-    from Service import TypesOfWorkoutsPerPerson
-    return TypesOfWorkoutsPerPerson.run(getWorkoutData(), Activities)
+    from Service import TypesOfWorkoutsPerPerson    return TypesOfWorkoutsPerPerson.run(getWorkoutData(orderBy='wid', comment=''), Activities)
 
-def commentSearch():
+def workoutsPerPerson():
     from Data.RowlogApi import getWorkoutData
-    from Service import CommentSearch
-    return CommentSearch.run(getWorkoutData(), comment)
- 
+    from Service import WorkoutsPerPerson
+    return WorkoutsPerPerson.run(getWorkoutData(orderBy='wid', comment=''))
+
 switcher = {
-    'workoutsPerPerson': workoutsPerPerson,
-    'typesOfWorkoutsPerPerson': typesOfWorkoutsPerPerson,
+    'ergMetersPerDay': ergMetersPerDay,
     'invalidService': invalidService,
-    'commentSearch': commentSearch
+    'individualContributions': IndividualContributions,
+    'typesOfWorkoutsPerPerson': typesOfWorkoutsPerPerson,
+    'workoutsPerPerson': workoutsPerPerson
 }
 
 def serviceSwitch(argument):
     service = switcher.get(argument, invalidService)
-    try:
-        return service()
-    except:
-        return 'Error occurred'
+    return service()
 
 output = serviceSwitch(parseInput())
 print(json.dumps(output))
