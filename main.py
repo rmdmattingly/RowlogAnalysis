@@ -10,28 +10,37 @@ def parseInput():
 def invalidService():
     return 'Invalid Service'
 
-def workoutsPerPerson():
-    from Service import WorkoutsPerPerson
+def ergMetersPerDay():
+    from Core import DateParser
+    from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
-    return WorkoutsPerPerson.run(getWorkoutData())
+    from Service import ErgMetersPerDay
+    return ErgMetersPerDay.run(getWorkoutData(orderBy='time'), Activities, DateParser)
 
 def typesOfWorkoutsPerPerson():
     from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
     from Service import TypesOfWorkoutsPerPerson
     return TypesOfWorkoutsPerPerson.run(getWorkoutData(), Activities)
+
+def workoutsPerPerson():
+    from Data.RowlogApi import getWorkoutData
+    from Service import WorkoutsPerPerson
+    return WorkoutsPerPerson.run(getWorkoutData())
  
 switcher = {
-    'workoutsPerPerson': workoutsPerPerson,
+    'invalidService': invalidService,
+    'ergMetersPerDay': ergMetersPerDay,
     'typesOfWorkoutsPerPerson': typesOfWorkoutsPerPerson,
-    'invalidService': invalidService
+    'workoutsPerPerson': workoutsPerPerson
 }
  
 def serviceSwitch(argument):
     service = switcher.get(argument, invalidService)
     try:
         return service()
-    except:
+    except Exception as e:
+        print(e)
         return 'Error occurred'
 
 output = serviceSwitch(parseInput())
