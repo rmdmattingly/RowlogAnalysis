@@ -20,13 +20,19 @@ def typesOfWorkoutsPerPerson():
     from Data.RowlogApi import getWorkoutData
     from Service import TypesOfWorkoutsPerPerson
     return TypesOfWorkoutsPerPerson.run(getWorkoutData(), Activities)
+
+def commentSearch():
+    from Data.RowlogApi import getWorkoutData
+    from Service import CommentSearch
+    return CommentSearch.run(getWorkoutData(), comment)
  
 switcher = {
     'workoutsPerPerson': workoutsPerPerson,
     'typesOfWorkoutsPerPerson': typesOfWorkoutsPerPerson,
-    'invalidService': invalidService
+    'invalidService': invalidService,
+    'commentSearch': commentSearch
 }
- 
+
 def serviceSwitch(argument):
     service = switcher.get(argument, invalidService)
     try:
