@@ -25,10 +25,6 @@ def individualContributions(args):
     from Service import IndividualContributions
     return IndividualContributions.run(getWorkoutData(orderBy='time', comment=''), getPeopleData(), DateManager)
 
-def searchComments(args):
-    from Data.RowlogApi import getWorkoutData
-    return getWorkoutData(orderBy='wid', comment=args[2])
-
 def typesOfWorkoutsPerPerson(args):
     from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
@@ -40,11 +36,17 @@ def workoutsPerPerson(args):
     from Service import WorkoutsPerPerson
     return WorkoutsPerPerson.run(getWorkoutData(orderBy='wid', comment=''))
 
+def totalMetersPerSide(args):
+    from Data.RowlogApi import getWorkoutData
+    from Data.RowlogApi import getPeopleData
+    from Service import TotalMetersPerSide
+    return TotalMetersPerSide.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData())
+
 switcher = {
     'ergMetersPerDay': ergMetersPerDay,
     'invalidService': invalidService,
     'individualContributions': individualContributions,
-    'searchComments': searchComments,
+    'totalMetersPerSide': totalMetersPerSide,
     'typesOfWorkoutsPerPerson': typesOfWorkoutsPerPerson,
     'workoutsPerPerson': workoutsPerPerson
 }
