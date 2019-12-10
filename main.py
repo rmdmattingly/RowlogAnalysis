@@ -48,7 +48,6 @@ def averageMetersPerSide(args):
     from Service import AverageMetersPerSide
     return AverageMetersPerSide.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData())
 
-
 switcher = {
     'ergMetersPerDay': ergMetersPerDay,
     'invalidService': invalidService,
