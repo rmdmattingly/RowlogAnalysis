@@ -40,11 +40,18 @@ def workoutsPerPerson(args):
     from Service import WorkoutsPerPerson
     return WorkoutsPerPerson.run(getWorkoutData(orderBy='wid', comment=''))
 
+def totalMetersPerSide(args):
+    from Data.RowlogApi import getWorkoutData
+    from Data.RowlogApi import getPeopleData
+    from Service import TotalMetersPerSide
+    return TotalMetersPerSide.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData())
+
 switcher = {
     'ergMetersPerDay': ergMetersPerDay,
     'invalidService': invalidService,
     'individualContributions': individualContributions,
     'searchComments': searchComments,
+    'totalMetersPerSide': totalMetersPerSide,
     'typesOfWorkoutsPerPerson': typesOfWorkoutsPerPerson,
     'workoutsPerPerson': workoutsPerPerson
 }
