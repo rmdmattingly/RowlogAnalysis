@@ -40,7 +40,7 @@ def totalMetersPerSide(args):
     from Data.RowlogApi import getWorkoutData
     from Data.RowlogApi import getPeopleData
     from Service import TotalMetersPerSide
-    TotalMetersPerSide.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData())
+    return TotalMetersPerSide.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData())
  
 switcher = {
     'ergMetersPerDay': ergMetersPerDay,
