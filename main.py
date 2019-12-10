@@ -4,20 +4,20 @@ from pprint import pprint
 
 def parseInput():
     if len(sys.argv) > 1:
-        return sys.argv[1]
-    return 'invalidService'
+        return sys.argv
+    return ['invalidService']
 
-def invalidService():
+def invalidService(args):
     return 'Invalid Service'
 
-def ergMetersPerDay():
+def ergMetersPerDay(args):
     from Core import DateManager
     from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
     from Service import ErgMetersPerDay
     return ErgMetersPerDay.run(getWorkoutData(orderBy='time'), Activities, DateManager)
 
-def IndividualContributions():
+def IndividualContributions(args):
     from Core import DateManager
     from Core.Activities import Activities
     from Data.RowlogApi import getPeopleData
@@ -25,13 +25,13 @@ def IndividualContributions():
     from Service import IndividualContributions
     return IndividualContributions.run(getWorkoutData(orderBy='time'), getPeopleData(), DateManager)
 
-def typesOfWorkoutsPerPerson():
+def typesOfWorkoutsPerPerson(args):
     from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
     from Service import TypesOfWorkoutsPerPerson
     return TypesOfWorkoutsPerPerson.run(getWorkoutData(orderBy='wid', comment=''), Activities)
 
-def workoutsPerPerson():
+def workoutsPerPerson(args):
     from Data.RowlogApi import getWorkoutData
     from Service import WorkoutsPerPerson
     return WorkoutsPerPerson.run(getWorkoutData(orderBy='wid', comment=''))
@@ -44,9 +44,9 @@ switcher = {
     'workoutsPerPerson': workoutsPerPerson
 }
  
-def serviceSwitch(argument):
-    service = switcher.get(argument, invalidService)
-    return service()
+def serviceSwitch(arguments):
+    service = switcher.get(arguments[1], invalidService)
+    return service(arguments)
 
 output = serviceSwitch(parseInput())
 print(json.dumps(output))
