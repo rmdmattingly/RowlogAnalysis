@@ -1,15 +1,15 @@
 def findRowersOnSide(workoutData, peopleData, side):
-    listOfIDs = {}
+    peopleIDsOnASide = set()
     for person in peopleData:
-        if person['side'] == side:
-            listOfIDs += person['people_id']
-    return listOfIDs
+        if person['side'] == side and side not in peopleIDsOnASide:
+            peopleIDsOnASide.add(person['people_id'])
+    return peopleIDsOnASide
 
 def getSideMeters(workoutData, peopleData, side):
     sideMeters = 0
     rowersOnSide = findRowersOnSide(workoutData, peopleData, side)
     for workout in workoutData:
-        if workout['people_id'] in rowersOnSide
+        if workout['people_id'] in rowersOnSide:
             sideMeters += float(workout['scored_meters'])
     return sideMeters
 
