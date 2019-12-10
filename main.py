@@ -15,15 +15,15 @@ def ergMetersPerDay(args):
     from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
     from Service import ErgMetersPerDay
-    return ErgMetersPerDay.run(getWorkoutData(orderBy='time'), Activities, DateManager)
+    return ErgMetersPerDay.run(getWorkoutData(orderBy='time', comment=''), Activities, DateManager)
 
-def IndividualContributions(args):
+def individualContributions(args):
     from Core import DateManager
     from Core.Activities import Activities
     from Data.RowlogApi import getPeopleData
     from Data.RowlogApi import getWorkoutData
     from Service import IndividualContributions
-    return IndividualContributions.run(getWorkoutData(orderBy='time'), getPeopleData(), DateManager)
+    return IndividualContributions.run(getWorkoutData(orderBy='time', comment=''), getPeopleData(), DateManager)
 
 def typesOfWorkoutsPerPerson(args):
     from Core.Activities import Activities
@@ -36,22 +36,17 @@ def workoutsPerPerson(args):
     from Service import WorkoutsPerPerson
     return WorkoutsPerPerson.run(getWorkoutData(orderBy='wid', comment=''))
 
-def getStarboardMeters():
-    from Data.RowLogApi import getWorkoutData
-    from Data.RowLogApi import getPeopleData
+def totalMetersPerSide(args):
+    from Data.RowlogApi import getWorkoutData
+    from Data.RowlogApi import getPeopleData
     from Service import TotalMetersPerSide
-    return getSideMeters.getStarboardMeters(getWorkoutData, getPeopleData, 'starboard')
-
-def getPortMeters():
-    from Data.RowLogApi import getWorkoutData
-    from Data.RowLogApi import getPeopleData
-    from Service import TotalMetersPerSide
-    return getSideMeters.getPortMeters(getWorkoutData, getPeopleData, 'port')
+    TotalMetersPerSide.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData())
  
 switcher = {
     'ergMetersPerDay': ergMetersPerDay,
     'invalidService': invalidService,
-    'individualContributions': IndividualContributions,
+    'individualContributions': individualContributions,
+    'totalMetersPerSide': totalMetersPerSide,
     'typesOfWorkoutsPerPerson': typesOfWorkoutsPerPerson,
     'workoutsPerPerson': workoutsPerPerson
 }
