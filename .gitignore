@@ -1,2 +1,9 @@
 __pycache__
 .DS_Store
+pip-selfcheck.json
+Service/__pycache__
+Data/__pycache__
+Core/__pycache__
+bin/
+lib/
+pip-selfcheck.json
