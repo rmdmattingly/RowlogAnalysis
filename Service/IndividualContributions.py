@@ -30,10 +30,32 @@ def getMetersPerDayByPerson(workoutsData, nameToData, DateManager):
         byPersonMetersPerDay[name][workoutDate] += int(workout['scored_meters'])
     return byPersonMetersPerDay
 
+def getMetersPerDayByBoating(workoutsData, nameToData, DateManager, boat):
+    chronologicalData = DateManager.getWorkoutsDataChronologically(workoutsData)
+    output = {}
+    boatingMembers = []
+    for workout in chronologicalData:
+        name = workout['name']
+        boating = nameToData[name]['boating']
+        workoutDate = DateManager.fetchDateFromTimestampString(workout['time'])
+        if (workoutDate not in output.keys()):
+            output[workoutDate] = 0
+        if (boating == boat):
+            if (name not in boatingMembers):
+                boatingMembers.append(name)
+            output[workoutDate] += int(workout['scored_meters'])
+    for key in output.keys():
+        output[key] = int(output[key] / len(boatingMembers))
+    return output
+
 def individualContributions(workoutsData, peopleData, DateManager):
     nameToData = getNameToDataDict(peopleData)
     output = {}
     output['universalAvg_metersPerDay'] = getUniversalAverageMetersPerDay(workoutsData, len(nameToData.keys()), DateManager)
+    output['1v_metersPerDayPerPerson'] = getMetersPerDayByBoating(workoutsData, nameToData, DateManager, '1v')
+    output['2v_metersPerDayPerPerson'] = getMetersPerDayByBoating(workoutsData, nameToData, DateManager, '2v')
+    output['3v_metersPerDayPerPerson'] = getMetersPerDayByBoating(workoutsData, nameToData, DateManager, '3v')
+    output['4v+_metersPerDayPerPerson'] = getMetersPerDayByBoating(workoutsData, nameToData, DateManager, '4v+')
     output['byPerson_metersPerDay'] = getMetersPerDayByPerson(workoutsData, nameToData, DateManager)
     return output
     
