@@ -1,5 +1,5 @@
 def findRowersOnSide(workoutData, peopleData, side):
-    listOfIDs = {}
+    listOfIDs = []
     for person in peopleData:
         if person['side'] == side:
             listOfIDs += person['people_id']
