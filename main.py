@@ -15,7 +15,7 @@ def ergMetersPerDay(args):
     from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
     from Service import ErgMetersPerDay
-    return ErgMetersPerDay.run(getWorkoutData(orderBy='time'), Activities, DateManager)
+    return ErgMetersPerDay.run(getWorkoutData(orderBy='time', comment=''), Activities, DateManager)
 
 def IndividualContributions(args):
     from Core import DateManager
@@ -23,7 +23,7 @@ def IndividualContributions(args):
     from Data.RowlogApi import getPeopleData
     from Data.RowlogApi import getWorkoutData
     from Service import IndividualContributions
-    return IndividualContributions.run(getWorkoutData(orderBy='time'), getPeopleData(), DateManager)
+    return IndividualContributions.run(getWorkoutData(orderBy='time', comment=''), getPeopleData(), DateManager)
 
 def typesOfWorkoutsPerPerson(args):
     from Core.Activities import Activities
