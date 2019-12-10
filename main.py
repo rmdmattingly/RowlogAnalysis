@@ -35,6 +35,18 @@ def workoutsPerPerson(args):
     from Data.RowlogApi import getWorkoutData
     from Service import WorkoutsPerPerson
     return WorkoutsPerPerson.run(getWorkoutData(orderBy='wid', comment=''))
+
+def getStarboardMeters():
+    from Data.RowLogApi import getWorkoutData
+    from Data.RowLogApi import getPeopleData
+    from Service import TotalMetersPerSide
+    return getSideMeters.getStarboardMeters(getWorkoutData, getPeopleData, 'starboard')
+
+def getPortMeters():
+    from Data.RowLogApi import getWorkoutData
+    from Data.RowLogApi import getPeopleData
+    from Service import TotalMetersPerSide
+    return getSideMeters.getPortMeters(getWorkoutData, getPeopleData, 'port')
  
 switcher = {
     'ergMetersPerDay': ergMetersPerDay,
