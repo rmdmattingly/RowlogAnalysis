@@ -1,16 +1,15 @@
-def findRowersOnSide(workoutData, peopleData, side):
-    listOfIDs = []
+def findPersonSide(peopleData, people_id):
     for person in peopleData:
-        if person['side'] == side:
-            listOfIDs += person['people_id']
-    return listOfIDs
+        if person['people_id'] == people_id:
+            side = person['side']
+    return side
     
 def getSideMeters(workoutData, peopleData, side):
     sideMeters = 0
-    rowersOnSide = findRowersOnSide(workoutData, peopleData, side)
     for workout in workoutData:
-        if workout['people_id'] in rowersOnSide:
-            sideMeters += workout['scored_meters']
+        personSide = findPersonSide(peopleData, workout['people_id'])
+        if personSide == side:
+            sideMeters += float(workout['scored_meters'])
     return sideMeters
 
 def getPortMeters(workoutData, peopleData):
