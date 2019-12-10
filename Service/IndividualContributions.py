@@ -33,7 +33,7 @@ def getMetersPerDayByPerson(workoutsData, nameToData, DateManager):
 def getMetersPerDayByBoating(workoutsData, nameToData, DateManager, boat):
     chronologicalData = DateManager.getWorkoutsDataChronologically(workoutsData)
     output = {}
-    boatingMembers = 0
+    boatingMembers = []
     for workout in chronologicalData:
         name = workout['name']
         boating = nameToData[name]['boating']
@@ -41,10 +41,11 @@ def getMetersPerDayByBoating(workoutsData, nameToData, DateManager, boat):
         if (workoutDate not in output.keys()):
             output[workoutDate] = 0
         if (boating == boat):
+            if (name not in boatingMembers):
+                boatingMembers.append(name)
             output[workoutDate] += int(workout['scored_meters'])
-            boatingMembers += 1
     for key in output.keys():
-        output[key] = int(output[key] / boatingMembers)
+        output[key] = int(output[key] / len(boatingMembers))
     return output
 
 def individualContributions(workoutsData, peopleData, DateManager):
@@ -54,7 +55,7 @@ def individualContributions(workoutsData, peopleData, DateManager):
     output['1v_metersPerDayPerPerson'] = getMetersPerDayByBoating(workoutsData, nameToData, DateManager, '1v')
     output['2v_metersPerDayPerPerson'] = getMetersPerDayByBoating(workoutsData, nameToData, DateManager, '2v')
     output['3v_metersPerDayPerPerson'] = getMetersPerDayByBoating(workoutsData, nameToData, DateManager, '3v')
-    output['4v_metersPerDayPerPerson'] = getMetersPerDayByBoating(workoutsData, nameToData, DateManager, '4v+')
+    output['4v+_metersPerDayPerPerson'] = getMetersPerDayByBoating(workoutsData, nameToData, DateManager, '4v+')
     output['byPerson_metersPerDay'] = getMetersPerDayByPerson(workoutsData, nameToData, DateManager)
     return output
     
