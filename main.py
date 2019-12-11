@@ -20,13 +20,21 @@ def typesOfWorkoutsPerPerson():
     from Data.RowlogApi import getWorkoutData
     from Service import TypesOfWorkoutsPerPerson
     return TypesOfWorkoutsPerPerson.run(getWorkoutData(), Activities)
- 
+
+def percentOfMeters():
+    from Core.Activites import Activities
+    from Data.RowlogApi import getWorkoutData
+    from Data.RowlogApi import getPeopleData
+    from Service import PercentOfMeters
+    return PercentOfMeters.run(getPeopleData(), getWorkoutData(), Activities)
+
 switcher = {
     'workoutsPerPerson': workoutsPerPerson,
     'typesOfWorkoutsPerPerson': typesOfWorkoutsPerPerson,
+    'percentOfMeters': percentOfMeters,
     'invalidService': invalidService
 }
- 
+
 def serviceSwitch(argument):
     service = switcher.get(argument, invalidService)
     try:
