@@ -30,12 +30,12 @@ def findSideAverageSplit(workoutData, peopleData, side, SplitManager):
         if currentRowerSide == side and workout['type'] == 'Erg':
             workoutCount += 1
             try:
-                totalSplitSeconds += SplitManager.convertToSeconds(workout['avg_split'])
+                totalSplitSeconds += SplitManager.convertSplitToSeconds(workout['avg_split'])
             except ValueError:
                 print("Something wrong with split format!")
     averageSplitInSeconds = totalSplitSeconds/workoutCount
     averageSplit = SplitManager.convertSecondsToSplit(averageSplitInSeconds)
-    return AverageSplit
+    return averageSplit
 
 def findPortAvgMeters(workoutData, peopleData):
     return findSideAverageMeters(workoutData, peopleData, 'port')
@@ -43,7 +43,7 @@ def findPortAvgMeters(workoutData, peopleData):
 def findStarboardAvgMeters(workoutData, peopleData):
     return findSideAverageMeters(workoutData, peopleData, 'starboard')
 
-def run(workoutData, peopleData, splitManager):
+def run(workoutData, peopleData, SplitManager):
     output = {}
     output['portMeters'] = findPortAvgMeters(workoutData, peopleData)
     output['starboardMeters'] = findStarboardAvgMeters(workoutData, peopleData)
