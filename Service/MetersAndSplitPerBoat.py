@@ -19,7 +19,10 @@ def calculateBoatAverageSplit(workoutData, peopleData, boating, SplitManager):
     for workout in workoutData:
             if workout['people_id'] in peopleInBoat and workout['type'] == 'Erg':
                 workoutCount += 1
-                totalSplitSeconds += SplitManager.convertSplitToSeconds(workout['avg_split'])
+                try:
+                    totalSplitSeconds += SplitManager.convertSplitToSeconds(workout['avg_split'])
+                except ValueError:
+                    print("Something Wrong With Split Format")
     averageSplitInSeconds = totalSplitSeconds/workoutCount
     averageSplit = SplitManager.convertSecondsToSplit(averageSplitInSeconds)
     return averageSplit
