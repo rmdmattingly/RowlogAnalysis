@@ -10,6 +10,12 @@ def parseInput():
 def invalidService(args):
     return 'Invalid Service'
 
+def averageMetersPerSide(args):
+    from Data.RowlogApi import getWorkoutData
+    from Data.RowlogApi import getPeopleData
+    from Service import AverageMetersPerSide
+    return AverageMetersPerSide.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData())
+
 def ergMetersPerDay(args):
     from Core import DateManager
     from Core.Activities import Activities
@@ -25,6 +31,10 @@ def individualContributions(args):
     from Service import IndividualContributions
     return IndividualContributions.run(getWorkoutData(orderBy='time', comment=''), getPeopleData(), DateManager)
 
+def searchComments(args):
+    from Data.RowlogApi import getWorkoutData
+    return getWorkoutData(orderBy='wid', comment=args[2])
+
 def typesOfWorkoutsPerPerson(args):
     from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
@@ -37,17 +47,17 @@ def totalMetersPerSide(args):
     from Service import TotalMetersPerSide
     return TotalMetersPerSide.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData())
 
-def averageMetersPerSide(args):
+def workoutsPerPerson(args):
     from Data.RowlogApi import getWorkoutData
-    from Data.RowlogApi import getPeopleData
-    from Service import AverageMetersPerSide
-    return AverageMetersPerSide.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData())
+    from Service import WorkoutsPerPerson
+    return WorkoutsPerPerson.run(getWorkoutData(orderBy='wid', comment=''))
 
 switcher = {
     'averageMetersPerSide': averageMetersPerSide,
     'ergMetersPerDay': ergMetersPerDay,
     'invalidService': invalidService,
     'individualContributions': individualContributions,
+    'searchComments': searchComments,
     'totalMetersPerSide': totalMetersPerSide,
     'typesOfWorkoutsPerPerson': typesOfWorkoutsPerPerson,
     'workoutsPerPerson': workoutsPerPerson
