@@ -13,15 +13,13 @@ def findRowerSide(peopleData, people_id):
     return personSide
 
 def findSideAverageMeters(workoutData, peopleData, side):
-    sideAverageMeters = 0
     sideTotalMeters = 0
     sideTotalRowers = findNumberOfRowersOnSide(peopleData, side)
     for workout in workoutData:
         currentRowerSide = findRowerSide(peopleData, workout['people_id'])
         if currentRowerSide == side:
             sideTotalMeters += float(workout['scored_meters'])
-    sideAverageMeters = sideTotalMeters/sideTotalRowers
-    return sideAverageMeters
+    return sideTotalMeters/sideTotalRowers
 
 def findPortAvgMeters(workoutData, peopleData):
     return findSideAverageMeters(workoutData, peopleData, 'port')
@@ -36,8 +34,3 @@ def run(workoutData, peopleData):
     output['starboardCount'] = findNumberOfRowersOnSide(peopleData, 'starboard')
     output['portCount'] = findNumberOfRowersOnSide(peopleData, 'port')
     return output
-
-
-    
-            
-        
