@@ -56,7 +56,6 @@ switcher = {
     'totalMetersPerSide': totalMetersPerSide,
     'typesOfWorkoutsPerPerson': typesOfWorkoutsPerPerson,
     'workoutsPerPerson': workoutsPerPerson
-
 }
 
 def serviceSwitch(arguments):
