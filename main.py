@@ -50,16 +50,23 @@ def longestWorkoutPerDay(args):
     from Service import LongestWorkoutPerDay
     return LongestWorkoutPerDay.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData(), DateManager)
 
+def averageMetersPerSide(args):
+    from Data.RowlogApi import getWorkoutData
+    from Data.RowlogApi import getPeopleData
+    from Service import AverageMetersPerSide
+    return AverageMetersPerSide.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData())
+
 switcher = {
+    'averageMetersPerSide': averageMetersPerSide,
     'ergMetersPerDay': ergMetersPerDay,
     'invalidService': invalidService,
     'individualContributions': individualContributions,
     'totalMetersPerSide': totalMetersPerSide,
     'typesOfWorkoutsPerPerson': typesOfWorkoutsPerPerson,
     'workoutsPerPerson': workoutsPerPerson,
-    'longestWorkoutPerDay': longestWorkoutPerDay,
+    'longestWorkoutPerDay': longestWorkoutPerDay
 }
-
+ 
 def serviceSwitch(arguments):
     service = switcher.get(arguments[1], invalidService)
     return service(arguments)
