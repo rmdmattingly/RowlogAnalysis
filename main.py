@@ -31,11 +31,6 @@ def typesOfWorkoutsPerPerson(args):
     from Service import TypesOfWorkoutsPerPerson
     return TypesOfWorkoutsPerPerson.run(getWorkoutData(orderBy='wid', comment=''), Activities)
 
-def workoutsPerPerson(args):
-    from Data.RowlogApi import getWorkoutData
-    from Service import WorkoutsPerPerson
-    return WorkoutsPerPerson.run(getWorkoutData(orderBy='wid', comment=''))
-
 def totalMetersPerSide(args):
     from Data.RowlogApi import getWorkoutData
     from Data.RowlogApi import getPeopleData
