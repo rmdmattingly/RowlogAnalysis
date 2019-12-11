@@ -1,10 +1,3 @@
-def findRowerSide(peopleData, people_id):
-    personSide = ''
-    for person in peopleData:
-        if person['people_id'] == people_id:
-            personSide = person['side']
-    return personSide
-
 def findNumRowersInBoat(peopleData, boating):
     rowerCount = 0
     for person in peopleData:
@@ -16,7 +9,7 @@ def findRowersInBoat(peopleData, boating):
     peopleInBoat = set()
     for person in peopleData:
         if person['boating'] == boating and boating not in peopleInBoat:
-            peopleInBoat.add(person['people_id']
+            peopleInBoat.add(person['people_id'])
     return peopleInBoat
 
 def calculateBoatAverageSplit(workoutData, peopleData, boating, SplitManager):
@@ -24,10 +17,9 @@ def calculateBoatAverageSplit(workoutData, peopleData, boating, SplitManager):
     totalSplitSeconds = 0
     workoutCount = 0
     for workout in workoutData:
-            if workout['people_id'] in peopleInBoat:
-                if workout['type'] == 'erg':
-                    workoutCount += 1
-                    totalSplitSeconds += SplitManager.convertSplitToSeconds(workout['split'])
+            if workout['people_id'] in peopleInBoat and workout['type'] == 'erg':
+                workoutCount += 1
+                totalSplitSeconds += SplitManager.convertSplitToSeconds(workout['split'])
     averageSplitInSeconds = totalSplitSeconds/workoutCount
     averageSplit = SplitManager.convertSecondsToSplit(averageSplitInSeconds)
     return averageSplit
@@ -35,10 +27,10 @@ def calculateBoatAverageSplit(workoutData, peopleData, boating, SplitManager):
 
 def run(workoutData, peopleData, SplitManager):
     output = {}
-    output['1v'] = calculateBoatAverageSplit(workoutData, peopleData, '1v')
-    output['2v'] = calculateBoatAverageSplit(workoutData, peopleData, '2v')
-    output['3v'] = calculateBoatAverageSplit(workoutData, peopleData, '3v')
-    output['4v+'] = calculateBoatAverageSplit(workoutData, peopleData, '4v+')
+    output['1v'] = calculateBoatAverageSplit(workoutData, peopleData, '1v', SplitManager)
+    output['2v'] = calculateBoatAverageSplit(workoutData, peopleData, '2v', SplitManager)
+    output['3v'] = calculateBoatAverageSplit(workoutData, peopleData, '3v', SplitManager)
+    output['4v+'] = calculateBoatAverageSplit(workoutData, peopleData, '4v+', SplitManager)
     return output
 
 
