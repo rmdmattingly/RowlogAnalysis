@@ -20,8 +20,15 @@ def typesOfWorkoutsPerPerson():
     from Data.RowlogApi import getWorkoutData
     from Service import TypesOfWorkoutsPerPerson
     return TypesOfWorkoutsPerPerson.run(getWorkoutData(), Activities)
- 
+
+def weeklyLeardboard(args):
+    from Data.RowlogApi import getWorkoutData
+    from Service import weeklyLeaderboard
+    return weeklyLeaderboard.run(getWorkoutData())
+    
+
 switcher = {
+    'weeklyLeaderboard': weeklyLeaderboard,
     'workoutsPerPerson': workoutsPerPerson,
     'typesOfWorkoutsPerPerson': typesOfWorkoutsPerPerson,
     'invalidService': invalidService
