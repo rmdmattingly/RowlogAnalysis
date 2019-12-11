@@ -1,5 +1,3 @@
-from core import SplitManager
-
 def findRowerSide(peopleData, people_id):
     personSide = ''
     for person in peopleData:
@@ -21,7 +19,7 @@ def findRowersInBoat(peopleData, boating):
             peopleInBoat.add(person['people_id']
     return peopleInBoat
 
-def calculateBoatAverageSplit(workoutData, peopleData, boating):
+def calculateBoatAverageSplit(workoutData, peopleData, boating, SplitManager):
     peopleInBoat = findRowersInBoat(peopleData, boating)
     totalSplitSeconds = 0
     workoutCount = 0
@@ -29,13 +27,13 @@ def calculateBoatAverageSplit(workoutData, peopleData, boating):
             if workout['people_id'] in peopleInBoat:
                 if workout['type'] == 'erg':
                     workoutCount += 1
-                    totalSplitSeconds += convertSplitToSeconds(workout['split'])
+                    totalSplitSeconds += SplitManager.convertSplitToSeconds(workout['split'])
     averageSplitInSeconds = totalSplitSeconds/workoutCount
-    averageSplit = convertSecondsToSplit(averageSplitInSeconds)
+    averageSplit = SplitManager.convertSecondsToSplit(averageSplitInSeconds)
     return averageSplit
 
 
-def run(workoutData, peopleData):
+def run(workoutData, peopleData, SplitManager):
     output = {}
     output['1v'] = calculateBoatAverageSplit(workoutData, peopleData, '1v')
     output['2v'] = calculateBoatAverageSplit(workoutData, peopleData, '2v')
