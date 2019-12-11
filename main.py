@@ -48,7 +48,6 @@ def longestWorkoutPerDay(args):
     from Data.RowlogApi import getWorkoutData
     from Data.RowlogApi import getPeopleData
     from Service import LongestWorkoutPerDay
-
     return LongestWorkoutPerDay.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData(), DateManager)
 
 switcher = {
