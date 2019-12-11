@@ -42,12 +42,12 @@ def totalMetersPerSide(args):
     from Service import TotalMetersPerSide
     return TotalMetersPerSide.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData())
 
-def percentOfMeters():
-    from Core.Activites import Activities
+def percentOfMeters(args):
+    from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
     from Data.RowlogApi import getPeopleData
     from Service import PercentOfMeters
-    return PercentOfMeters.run(getPeopleData(), getWorkoutData(), Activities)
+    return PercentOfMeters.run(getPeopleData(), getWorkoutData(orderBy='wid', comment=''), Activities)
 
 switcher = {
     'ergMetersPerDay': ergMetersPerDay,
