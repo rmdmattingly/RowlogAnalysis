@@ -48,20 +48,20 @@ def averageMetersPerSide(args):
     from Service import AverageMetersPerSide
     return AverageMetersPerSide.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData())
 
-def metersAndSplitPerBoat(args):
+def avgSplitByBoat(args):
     from Data.RowlogApi import getWorkoutData
     from Data.RowlogApi import getPeopleData
     from Core import SplitManager
-    from Service import MetersAndSplitPerBoat
-    return MetersAndSplitPerBoat.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData(), SplitManager)
+    from Service import AvgSplitByBoat
+    return AvgSplitByBoat.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData(), SplitManager)
 
 
 switcher = {
     'averageMetersPerSide': averageMetersPerSide,
+    'avgSplitByBoat': avgSplitByBoat,
     'ergMetersPerDay': ergMetersPerDay,
     'invalidService': invalidService,
     'individualContributions': individualContributions,
-    'metersAndSplitPerBoat': metersAndSplitPerBoat,
     'totalMetersPerSide': totalMetersPerSide,
     'typesOfWorkoutsPerPerson': typesOfWorkoutsPerPerson,
     'workoutsPerPerson': workoutsPerPerson
