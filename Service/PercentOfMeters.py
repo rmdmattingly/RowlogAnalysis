@@ -8,7 +8,7 @@ def numOfWork(workoutsData Activites, nameToData):
     numOfWork = {}
     for name in nameToData.items():
         numOfWork[name] = {}
-        
+
     for activity in Activites:
         if (activity.name not in numOfWork[name].keys()):
             numOfWork[name][activity.name] = {}
