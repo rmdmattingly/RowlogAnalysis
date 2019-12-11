@@ -19,7 +19,7 @@ def calculateBoatAverageSplit(workoutData, peopleData, boating, SplitManager):
     for workout in workoutData:
             if workout['people_id'] in peopleInBoat and workout['type'] == 'Erg':
                 workoutCount += 1
-                totalSplitSeconds += SplitManager.convertSplitToSeconds(SplitManager.parseStringToMinAndSec(workout['avg_split']))
+                totalSplitSeconds += SplitManager.convertSplitToSeconds(workout['avg_split'])
     averageSplitInSeconds = totalSplitSeconds/workoutCount
     averageSplit = SplitManager.convertSecondsToSplit(averageSplitInSeconds)
     return averageSplit
