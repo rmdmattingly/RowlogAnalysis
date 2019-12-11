@@ -31,6 +31,17 @@ def typesOfWorkoutsPerPerson(args):
     from Service import TypesOfWorkoutsPerPerson
     return TypesOfWorkoutsPerPerson.run(getWorkoutData(), Activities)
 
+def workoutsPerPerson(args):
+    from Data.RowlogApi import getWorkoutData
+    from Service import WorkoutsPerPerson
+    return WorkoutsPerPerson.run(getWorkoutData(orderBy='wid', comment=''))
+
+def totalMetersPerSide(args):
+    from Data.RowlogApi import getWorkoutData
+    from Data.RowlogApi import getPeopleData
+    from Service import TotalMetersPerSide
+    return TotalMetersPerSide.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData())
+
 def percentOfMeters():
     from Core.Activites import Activities
     from Data.RowlogApi import getWorkoutData
@@ -45,15 +56,11 @@ switcher = {
     'totalMetersPerSide': totalMetersPerSide,
     'typesOfWorkoutsPerPerson': typesOfWorkoutsPerPerson,
     'percentOfMeters': percentOfMeters,
-    'invalidService': invalidService
 }
 
-def serviceSwitch(argument):
-    service = switcher.get(argument, invalidService)
-    try:
-        return service()
-    except:
-        return 'Error occurred'
+def serviceSwitch(arguments):
+    service = switcher.get(arguments[1], invalidService)
+    return service(arguments)
 
 output = serviceSwitch(parseInput())
 print(json.dumps(output))
