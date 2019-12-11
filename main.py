@@ -4,21 +4,32 @@ from pprint import pprint
 
 def parseInput():
     if len(sys.argv) > 1:
-        return sys.argv[1]
-    return 'invalidService'
+        return sys.argv
+    return ['invalidService']
 
-def invalidService():
+def invalidService(args):
     return 'Invalid Service'
 
-def workoutsPerPerson():
-    from Service import WorkoutsPerPerson
+def ergMetersPerDay(args):
+    from Core import DateManager
+    from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
-    return WorkoutsPerPerson.run(getWorkoutData())
+    from Service import ErgMetersPerDay
+    return ErgMetersPerDay.run(getWorkoutData(orderBy='time', comment=''), Activities, DateManager)
 
-def typesOfWorkoutsPerPerson():
+def individualContributions(args):
+    from Core import DateManager
+    from Core.Activities import Activities
+    from Data.RowlogApi import getPeopleData
+    from Data.RowlogApi import getWorkoutData
+    from Service import IndividualContributions
+    return IndividualContributions.run(getWorkoutData(orderBy='time', comment=''), getPeopleData(), DateManager)
+
+def typesOfWorkoutsPerPerson(args):
     from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
     from Service import TypesOfWorkoutsPerPerson
+<<<<<<< HEAD
     return TypesOfWorkoutsPerPerson.run(getWorkoutData(), Activities)
 
 def weeklyLeardboard(args):
@@ -30,16 +41,41 @@ def weeklyLeardboard(args):
 switcher = {
     'weeklyLeaderboard': weeklyLeaderboard,
     'workoutsPerPerson': workoutsPerPerson,
+=======
+    return TypesOfWorkoutsPerPerson.run(getWorkoutData(orderBy='wid', comment=''), Activities)
+
+def workoutsPerPerson(args):
+    from Data.RowlogApi import getWorkoutData
+    from Service import WorkoutsPerPerson
+    return WorkoutsPerPerson.run(getWorkoutData(orderBy='wid', comment=''))
+
+def totalMetersPerSide(args):
+    from Data.RowlogApi import getWorkoutData
+    from Data.RowlogApi import getPeopleData
+    from Service import TotalMetersPerSide
+    return TotalMetersPerSide.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData())
+
+def averageMetersPerSide(args):
+    from Data.RowlogApi import getWorkoutData
+    from Data.RowlogApi import getPeopleData
+    from Service import AverageMetersPerSide
+    return AverageMetersPerSide.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData())
+
+switcher = {
+    'averageMetersPerSide': averageMetersPerSide,
+    'ergMetersPerDay': ergMetersPerDay,
+    'invalidService': invalidService,
+    'individualContributions': individualContributions,
+    'totalMetersPerSide': totalMetersPerSide,
+>>>>>>> a0277bd74b4f9d03c0cf6cc4f7ab437bc8abc066
     'typesOfWorkoutsPerPerson': typesOfWorkoutsPerPerson,
-    'invalidService': invalidService
+    'workoutsPerPerson': workoutsPerPerson
+    
 }
  
-def serviceSwitch(argument):
-    service = switcher.get(argument, invalidService)
-    try:
-        return service()
-    except:
-        return 'Error occurred'
+def serviceSwitch(arguments):
+    service = switcher.get(arguments[1], invalidService)
+    return service(arguments)
 
 output = serviceSwitch(parseInput())
 print(json.dumps(output))
