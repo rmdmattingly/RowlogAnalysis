@@ -1,4 +1,4 @@
-def getLongestWorkoutPerDay(workoutsData, Activites, DateManager):
+def getLongestWorkoutPerDay(workoutsData, DateManager):
     longestWorkoutPerDay = {}
     chronologicalData = DateManager.getWorkoutsDataChronologically(workoutsData)
     for workout in chronologicalData:
@@ -10,5 +10,5 @@ def getLongestWorkoutPerDay(workoutsData, Activites, DateManager):
     return longestWorkoutPerDay
 
 
-def run(workoutsData, Activites, DateManager):
-    return getLongestWorkoutPerDay(workoutsData, Activites, DateManager)
+def run(workoutsData, DateManager):
+    return getLongestWorkoutPerDay(workoutsData, DateManager)

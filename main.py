@@ -17,7 +17,6 @@ def ergMetersPerDay(args):
     from Service import ErgMetersPerDay
     return ErgMetersPerDay.run(getWorkoutData(orderBy='time', comment=''), Activities, DateManager)
 
-
 def individualContributions(args):
     from Core import DateManager
     from Core.Activities import Activities
@@ -46,9 +45,8 @@ def totalMetersPerSide(args):
 def longestWorkoutPerDay(args):
     from Core import DateManager
     from Data.RowlogApi import getWorkoutData
-    from Data.RowlogApi import getPeopleData
     from Service import LongestWorkoutPerDay
-    return LongestWorkoutPerDay.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData(), DateManager)
+    return LongestWorkoutPerDay.run(getWorkoutData(orderBy='time', comment=''), DateManager)
 
 def averageMetersPerSide(args):
     from Data.RowlogApi import getWorkoutData
@@ -61,10 +59,10 @@ switcher = {
     'ergMetersPerDay': ergMetersPerDay,
     'invalidService': invalidService,
     'individualContributions': individualContributions,
+    'longestWorkoutPerDay': longestWorkoutPerDay,
     'totalMetersPerSide': totalMetersPerSide,
     'typesOfWorkoutsPerPerson': typesOfWorkoutsPerPerson,
-    'workoutsPerPerson': workoutsPerPerson,
-    'longestWorkoutPerDay': longestWorkoutPerDay
+    'workoutsPerPerson': workoutsPerPerson
 }
  
 def serviceSwitch(arguments):
