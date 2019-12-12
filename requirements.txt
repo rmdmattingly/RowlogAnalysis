@@ -4,3 +4,4 @@ idna==2.8
 pprint==0.1
 requests==2.22.0
 urllib3==1.25.7
+icalevents==0.1.23
