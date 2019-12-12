@@ -11,11 +11,11 @@ def findSplitTrendsByPerson(workoutData, people_id, SplitManager, DateManager):
         if workout['people_id'] == people_id and workout['type'] == 'Erg':
             workoutDate = DateManager.fetchDateFromTimestampString(workout['time'])
             if workout['intensity'] == 'U1':
-                u1Data[workOutDate] = SplitManager.parseStringToMinAndSec(workout['avg_split'])
+                u1Data[workoutDate] = SplitManager.parseStringToMinAndSec(workout['avg_split'])
             elif workout['intensity'] == 'U2':
-                u2Data[workOutDate] = SplitManager.parseStringToMinAndSec(workout['avg_split'])
+                u2Data[workoutDate] = SplitManager.parseStringToMinAndSec(workout['avg_split'])
             elif workout['intensity'] == 'U3':
-                u3Data[workOutDate] = SplitManager.parseStringToMinAndSec(workout['avg_split'])
+                u3Data[workoutDate] = SplitManager.parseStringToMinAndSec(workout['avg_split'])
             elif workout['intensity'] == 'AT':
                 ATData[workoutDate] = SplitManager.parseStringToMinAndSec(workout['avg_split'])
             elif workout['intensity'] == 'TR':

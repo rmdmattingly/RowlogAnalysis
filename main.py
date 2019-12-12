@@ -63,7 +63,7 @@ def splitTrendByPerson(args):
     from Core import SplitManager
     from Data.RowlogApi import getWorkoutData
     from Service import SplitTrendByPerson
-    return SplitTrendByPerson.run(getWorkoutData(orderBy='wid', comment=args[2]), args[2], SplitManager, DateManager)
+    return SplitTrendByPerson.run(getWorkoutData(orderBy='wid', comment=''), args[2], SplitManager, DateManager)
 
 switcher = {
     'averageMetersPerSide': averageMetersPerSide,
