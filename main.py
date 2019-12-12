@@ -47,6 +47,12 @@ def totalMetersPerSide(args):
     from Service import TotalMetersPerSide
     return TotalMetersPerSide.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData())
 
+def longestWorkoutPerDay(args):
+    from Core import DateManager
+    from Data.RowlogApi import getWorkoutData
+    from Service import LongestWorkoutPerDay
+    return LongestWorkoutPerDay.run(getWorkoutData(orderBy='time', comment=''), DateManager)
+
 def workoutsPerPerson(args):
     from Data.RowlogApi import getWorkoutData
     from Service import WorkoutsPerPerson
@@ -57,6 +63,7 @@ switcher = {
     'ergMetersPerDay': ergMetersPerDay,
     'invalidService': invalidService,
     'individualContributions': individualContributions,
+    'longestWorkoutPerDay': longestWorkoutPerDay,
     'searchComments': searchComments,
     'totalMetersPerSide': totalMetersPerSide,
     'typesOfWorkoutsPerPerson': typesOfWorkoutsPerPerson,
