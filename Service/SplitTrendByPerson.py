@@ -1,42 +1,21 @@
-def findSplitTrendsByPerson(workoutData, people_id, SplitManager, DateManager):
+def findSplitTrendsByPerson(workoutData, people_id, SplitManager, DateManager, intensity):
     orderedWorkoutData = DateManager.getWorkoutsDataChronologically(workoutData)
-    splitTrendData = {}
-    u1Data = {}
-    u2Data = {}
-    u3Data = {}
-    ATData = {}
-    TRData = {}
-    testData = {}
+    workoutsAtIntesnity = {}
     for workout in orderedWorkoutData:
         if workout['people_id'] == people_id and workout['type'] == 'Erg':
-            if workout['intensity'] == 'U1':
-                u1Data[workout['time']] = workout['avg_split']
-            elif workout['intensity'] == 'U2':
-                u2Data[workout['time']] = workout['avg_split']
-            elif workout['intensity'] == 'U3':
-                u3Data[workout['time']] = workout['avg_split']
-            elif workout['intensity'] == 'AT':
-                ATData[workout['time']] = workout['avg_split']
-            elif workout['intensity'] == 'TR':
-                TRData[workout['time']] = workout['avg_split']
-            elif workout['intensity'] == 'Test':
-                testData[workout['time']] = workout['avg_split']
-            elif workout['intensity'] is None:
-                pass
-            elif workout['intensity'] == 'Warmup':
-                pass
-            else:
-                print("Something went wrong.")
-    splitTrendData['U1'] = u1Data
-    splitTrendData['U2'] = u2Data
-    splitTrendData['U3'] = u3Data
-    splitTrendData['AT'] = ATData
-    splitTrendData['TR'] = TRData
-    splitTrendData['Test'] = testData
-    return splitTrendData
+            if workout['intensity'] == intensity:
+              workoutsAtIntensity[workout['time']] = workout['avg_split']
+    return workoutsAtIntensity
 
 def run(workoutData, people_id, SplitManager, DateManager):
-    return findSplitTrendsByPerson(workoutData, people_id, SplitManager, DateManager)
+    output = {}
+    output['U1'] = findSplitTrendByPerson(workoutData, people_id, SplitManager, DateManager, 'U1')
+    output['U2'] = findSplitTrendByPerson(workoutData, people_id, SplitManager, DateManager, 'U2')
+    output['U3'] = findSplitTrendByPerson(workoutData, people_id, SplitManager, DateManager, 'U3')
+    output['AT'] = findSplitTrendByPerson(workoutData, people_id, SplitManager, DateManager, 'AT')
+    output['TR'] = findSplitTrendByPerson(workoutData, people_id, SplitManager, DateManager, 'TR')
+    output['Test'] = findSplitTrendByPerson(workoutData, people_id, SplitManager, DateManager, 'Test')
+    return output
 
             
             
