@@ -18,10 +18,8 @@ def getDisplay(workoutsData, Activites, nameToData, types):
             if (activity.name not in numOfWork[name].keys()):
                 numOfWork[name][activity.name] = {}
                 if (activity.name in numOfWork[name].keys()):
-                    for work in types:
-                        if work in activity.name:
-                            numOfWork[name][activity.name]['NumberOfWorkouts'] += 1
-                            numOfWork[name][activity.name]['PercentageOfWork'] = 0
+                        numOfWork[name][activity.name]['NumberOfWorkouts'] += 1
+                        numOfWork[name][activity.name]['PercentageOfWork'] = 0
 
     return numOfWork
 
