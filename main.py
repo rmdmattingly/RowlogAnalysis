@@ -33,7 +33,7 @@ def individualContributions(args):
 
 def searchComments(args):
     from Data.RowlogApi import getWorkoutData
-    return getWorkoutData(teamCode=args[1], orderBy='wid', comment=args[2])
+    return getWorkoutData(teamCode=args[1], orderBy='wid', comment=args[3])
 
 def typesOfWorkoutsPerPerson(args):
     from Core.Activities import Activities
@@ -62,14 +62,14 @@ def totalMetersPerSide(args):
     from Data.RowlogApi import getWorkoutData
     from Data.RowlogApi import getPeopleData
     from Service import TotalMetersPerSide
-    return TotalMetersPerSide.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData())
+    return TotalMetersPerSide.run(getWorkoutData(teamCode=args[1], orderBy='wid', comment=''), getPeopleData(teamCode=args[1]))
 
 def averageMetersAndSplitBySide(args):
     from Data.RowlogApi import getWorkoutData
     from Data.RowlogApi import getPeopleData
     from Core import SplitManager
     from Service import AverageMetersAndSplitBySide
-    return AverageMetersAndSplitBySide.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData(), SplitManager)
+    return AverageMetersAndSplitBySide.run(getWorkoutData(teamCode=args[1], orderBy='wid', comment=''), getPeopleData(teamCode=args[1]), SplitManager)
 
 switcher = {
     'averageMetersAndSplitBySide': averageMetersAndSplitBySide,
