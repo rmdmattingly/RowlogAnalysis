@@ -3,7 +3,7 @@ import json
 from pprint import pprint
 
 def parseInput():
-    if len(sys.argv) > 1:
+    if len(sys.argv) > 2:
         return sys.argv
     return ['invalidService']
 
@@ -14,14 +14,14 @@ def averageMetersPerSide(args):
     from Data.RowlogApi import getWorkoutData
     from Data.RowlogApi import getPeopleData
     from Service import AverageMetersPerSide
-    return AverageMetersPerSide.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData())
+    return AverageMetersPerSide.run(getWorkoutData(teamCode=args[1], orderBy='wid', comment=''), getPeopleData(teamCode=args[1]))
 
 def ergMetersPerDay(args):
     from Core import DateManager
     from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
     from Service import ErgMetersPerDay
-    return ErgMetersPerDay.run(getWorkoutData(orderBy='time', comment=''), Activities, DateManager)
+    return ErgMetersPerDay.run(getWorkoutData(teamCode=args[1], orderBy='time', comment=''), Activities, DateManager)
 
 def individualContributions(args):
     from Core import DateManager
@@ -29,40 +29,41 @@ def individualContributions(args):
     from Data.RowlogApi import getPeopleData
     from Data.RowlogApi import getWorkoutData
     from Service import IndividualContributions
-    return IndividualContributions.run(getWorkoutData(orderBy='time', comment=''), getPeopleData(), DateManager)
+    return IndividualContributions.run(getWorkoutData(teamCode=args[1], orderBy='time', comment=''), getPeopleData(teamCode=args[1]), DateManager)
 
 def searchComments(args):
     from Data.RowlogApi import getWorkoutData
-    return getWorkoutData(orderBy='wid', comment=args[2])
+    return getWorkoutData(teamCode=args[1], orderBy='wid', comment=args[3])
 
 def typesOfWorkoutsPerPerson(args):
     from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
     from Service import TypesOfWorkoutsPerPerson
-    return TypesOfWorkoutsPerPerson.run(getWorkoutData(), Activities)
+    return TypesOfWorkoutsPerPerson.run(getWorkoutData(teamCode=args[1], orderBy='wid', comment=''), Activities)
+
 
 def totalMetersPerSide(args):
     from Data.RowlogApi import getWorkoutData
     from Data.RowlogApi import getPeopleData
     from Service import TotalMetersPerSide
-    return TotalMetersPerSide.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData())
+    return TotalMetersPerSide.run(getWorkoutData(teamCode=args[1], orderBy='wid', comment=''), getPeopleData(teamCode=args[1]))
 
 def longestWorkoutPerDay(args):
     from Core import DateManager
     from Data.RowlogApi import getWorkoutData
     from Service import LongestWorkoutPerDay
-    return LongestWorkoutPerDay.run(getWorkoutData(orderBy='time', comment=''), DateManager)
+    return LongestWorkoutPerDay.run(getWorkoutData(teamCode=args[1], orderBy='time', comment=''), DateManager)
 
 def workoutsPerPerson(args):
     from Data.RowlogApi import getWorkoutData
     from Service import WorkoutsPerPerson
-    return WorkoutsPerPerson.run(getWorkoutData(orderBy='wid', comment=''))
+    return WorkoutsPerPerson.run(getWorkoutData(teamCode=args[1], orderBy='wid', comment=''))
 
 def totalMetersPerSide(args):
     from Data.RowlogApi import getWorkoutData
     from Data.RowlogApi import getPeopleData
     from Service import TotalMetersPerSide
-    return TotalMetersPerSide.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData())
+    return TotalMetersPerSide.run(getWorkoutData(teamCode=args[1], orderBy='wid', comment=''), getPeopleData(teamCode=args[1]))
 
 
 def percentOfMeters(args):
@@ -78,7 +79,7 @@ def averageMetersAndSplitBySide(args):
     from Data.RowlogApi import getPeopleData
     from Core import SplitManager
     from Service import AverageMetersAndSplitBySide
-    return AverageMetersAndSplitBySide.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData(), SplitManager)
+    return AverageMetersAndSplitBySide.run(getWorkoutData(teamCode=args[1], orderBy='wid', comment=''), getPeopleData(teamCode=args[1]), SplitManager)
 
 switcher = {
     'averageMetersAndSplitBySide': averageMetersAndSplitBySide,
@@ -94,7 +95,7 @@ switcher = {
 }
 
 def serviceSwitch(arguments):
-    service = switcher.get(arguments[1], invalidService)
+    service = switcher.get(arguments[2], invalidService)
     return service(arguments)
 
 output = serviceSwitch(parseInput())
