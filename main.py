@@ -46,8 +46,9 @@ def percentOfMeters(args):
     from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
     from Data.RowlogApi import getPeopleData
+    from Service.TypesOfWorkoutsPerPerson import getTypesOfWorkoutsPerPerson
     from Service import PercentOfMeters
-    return PercentOfMeters.run(getPeopleData(), getWorkoutData(orderBy='wid', comment=''), Activities)
+    return PercentOfMeters.run(getPeopleData(), getWorkoutData(orderBy='wid', comment=''), Activities, getTypesOfWorkoutsPerPerson)
 
 switcher = {
     'ergMetersPerDay': ergMetersPerDay,
