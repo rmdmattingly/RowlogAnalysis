@@ -76,7 +76,7 @@ def splitTrends(args):
     from Core import SplitManager
     from Data.RowlogApi import getWorkoutData
     from Service import SplitTrends
-    return SplitTrends.run(getWorkoutData(orderBy='wid', comment=''), SplitManager, DateManager)
+    return SplitTrends.run(getWorkoutData(teamCode=args[1], orderBy='wid', comment=''), SplitManager, DateManager)
 
 switcher = {
     'averageMetersAndSplitBySide': averageMetersAndSplitBySide,
@@ -86,7 +86,7 @@ switcher = {
     'individualContributions': individualContributions,
     'longestWorkoutPerDay': longestWorkoutPerDay,
     'searchComments': searchComments,
-    'splitTrendByPerson': splitTrendByPerson,
+    'splitTrends': splitTrends,
     'totalMetersPerSide': totalMetersPerSide,
     'typesOfWorkoutsPerPerson': typesOfWorkoutsPerPerson,
     'workoutsPerPerson': workoutsPerPerson
