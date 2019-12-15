@@ -7,7 +7,6 @@ def getNameToDataDict(peopleData):
 
 def getDisplay(workoutsData, Activites, nameToData):
     numOfWork = {}
-    total = 0
 
     for workout in workoutsData:
         type = workout['type']
@@ -23,11 +22,9 @@ def getDisplay(workoutsData, Activites, nameToData):
                 numOfWork[name][activity.name]['PercentageOfWork'] = 0
             if type in activity.name:
                 numOfWork[name][activity.name]['NumberOfWorkouts'] += 1
-                numOfWork[name][activity.name]['PercentageOfWork'] = 100 * float(numOfWork[name][activity.name]['NumberOfWorkouts'])/float(numOfWork[name]['total'])
+                numOfWork[name][activity.name]['PercentageOfWork'] = round(100 * float(numOfWork[name][activity.name]['NumberOfWorkouts'])/float(numOfWork[name]['total']), 2)
 
     return numOfWork
-
-#100 * float(numWork)/float(total)
 
 def percentOfMeters(peopleData, getWorkoutData, Activities):
     nameToData = getNameToDataDict(peopleData)
