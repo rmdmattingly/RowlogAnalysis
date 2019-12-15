@@ -7,28 +7,25 @@ def getNameToDataDict(peopleData):
 
 def getDisplay(workoutsData, Activites, nameToData, types):
     numOfWork = {}
+    total = 0
 
     for workout in workoutsData:
         type = workout['type']
-
-
-    for name, person in nameToData.items():
-        numOfWork[name] = {}
+        name = workout['name']
+        if name not in numOfWork:
+            numOfWork[name] = {}
         for activity in Activites:
             if (activity.name not in numOfWork[name].keys()):
                 numOfWork[name][activity.name] = {}
-                if (activity.name in numOfWork[name].keys()):
-                        numOfWork[name][activity.name]['NumberOfWorkouts'] += 1
-                        numOfWork[name][activity.name]['PercentageOfWork'] = 0
+                numOfWork[name][activity.name]['NumberOfWorkouts'] = 0
+                numOfWork[name][activity.name]['PercentageOfWork'] = 0
+            if type in activity.name:
+                numOfWork[name][activity.name]['NumberOfWorkouts'] += 1
+                numOfWork[name][activity.name]['PercentageOfWork'] = 100 * float(numOfWork[name][activity.name]['NumberOfWorkouts'])#/float()
 
     return numOfWork
 
-#def percent(types):#numWork):
-#    for meters in types:
-#        total = meters['total_scored_meters']
-#        if(total == 0):
-#            return 0
-##            return total #100 * float(numWork)/float(total)
+#100 * float(numWork)/float(total)
 
 def percentOfMeters(peopleData, getWorkoutData, Activities, types):
     nameToData = getNameToDataDict(peopleData)
