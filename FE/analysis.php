@@ -4,6 +4,7 @@
     require('func/EnableDebugSettings.php');
     require('func/RestrictToUsers.php');
     require('func/SqlConnector.php');
+    require('func/IdentifyTeamId.php');
 ?>
 <html>
 <head>
@@ -19,7 +20,7 @@
         <script src="js/AnalysisServices/TypesOfWorkoutsPerPerson.js"></script>
         <script src="js/AnalysisServices/WorkoutsPerPerson.js"></script>
     <!-- End of service specific js files -->
-    <script src="js/Analysis.js"></script>
+    <script src="js/Analysis.js?v1.2"></script>
     <script src="js/chartBuilder.js"></script>
 </head>
 <body>
@@ -63,6 +64,6 @@
 </html>
 <?php 
     if (isset($_GET['service'])) {
-        echo "<script>formatData('" . $_SESSION['user'] . "', '" . $_GET['service'] . "')</script>";
+        echo "<script>formatData('" . $_SESSION['user'] . "', '" . $_SESSION['teamCode'] . "', '" . $_GET['service'] . "')</script>";
     }
 ?>
