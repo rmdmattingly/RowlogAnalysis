@@ -41,7 +41,6 @@ def typesOfWorkoutsPerPerson(args):
     from Service import TypesOfWorkoutsPerPerson
     return TypesOfWorkoutsPerPerson.run(getWorkoutData(teamCode=args[1], orderBy='wid', comment=''), Activities)
 
-
 def totalMetersPerSide(args):
     from Data.RowlogApi import getWorkoutData
     from Data.RowlogApi import getPeopleData
@@ -65,7 +64,6 @@ def totalMetersPerSide(args):
     from Service import TotalMetersPerSide
     return TotalMetersPerSide.run(getWorkoutData(teamCode=args[1], orderBy='wid', comment=''), getPeopleData(teamCode=args[1]))
 
-
 def percentOfMeters(args):
     from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
@@ -87,10 +85,11 @@ switcher = {
     'invalidService': invalidService,
     'individualContributions': individualContributions,
     'longestWorkoutPerDay': longestWorkoutPerDay,
+    'percentOfMeters': percentOfMeters,
     'searchComments': searchComments,
     'totalMetersPerSide': totalMetersPerSide,
     'typesOfWorkoutsPerPerson': typesOfWorkoutsPerPerson,
-    'percentOfMeters': percentOfMeters,
+    'workoutsPerPerson': workoutsPerPerson
 }
 
 def serviceSwitch(arguments):
