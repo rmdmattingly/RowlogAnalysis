@@ -5,7 +5,7 @@ def getNameToDataDict(peopleData):
     return nameToData
 
 
-def getDisplay(workoutsData, Activites, nameToData, types):
+def getDisplay(workoutsData, Activites, nameToData):
     numOfWork = {}
     total = 0
 
@@ -14,6 +14,8 @@ def getDisplay(workoutsData, Activites, nameToData, types):
         name = workout['name']
         if name not in numOfWork:
             numOfWork[name] = {}
+            numOfWork[name]['total'] = 0
+        numOfWork[name]['total'] += 1
         for activity in Activites:
             if (activity.name not in numOfWork[name].keys()):
                 numOfWork[name][activity.name] = {}
@@ -21,18 +23,17 @@ def getDisplay(workoutsData, Activites, nameToData, types):
                 numOfWork[name][activity.name]['PercentageOfWork'] = 0
             if type in activity.name:
                 numOfWork[name][activity.name]['NumberOfWorkouts'] += 1
-                numOfWork[name][activity.name]['PercentageOfWork'] = 100 * float(numOfWork[name][activity.name]['NumberOfWorkouts'])#/float()
+                numOfWork[name][activity.name]['PercentageOfWork'] = 100 * float(numOfWork[name][activity.name]['NumberOfWorkouts'])/float(numOfWork[name]['total'])
 
     return numOfWork
 
 #100 * float(numWork)/float(total)
 
-def percentOfMeters(peopleData, getWorkoutData, Activities, types):
+def percentOfMeters(peopleData, getWorkoutData, Activities):
     nameToData = getNameToDataDict(peopleData)
-    #per = percent(types)
     myDict = {}
-    myDict['name'] = getDisplay(getWorkoutData, Activities, nameToData, types)
+    myDict['name'] = getDisplay(getWorkoutData, Activities, nameToData)
     return myDict
 
-def run(peopleData, getWorkoutData, Activities, typesOfWorkoutsPerPerson):
-    return percentOfMeters(peopleData, getWorkoutData, Activities, typesOfWorkoutsPerPerson)
+def run(peopleData, getWorkoutData, Activities):
+    return percentOfMeters(peopleData, getWorkoutData, Activities)
