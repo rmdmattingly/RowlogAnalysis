@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="293ffa80-6910-4450-942b-48027848e933" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Service/SplitTrends.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service/SplitTrendByPerson.py" beforeDir="false" afterPath="$PROJECT_DIR$/Service/SplitTrendByPerson.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,9 +54,9 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="460" y="309" key="com.intellij.ide.util.TipDialog" timestamp="1576365588878">
+    <state x="460" y="309" key="com.intellij.ide.util.TipDialog" timestamp="1576517585844">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
-    <state x="460" y="309" key="com.intellij.ide.util.TipDialog/0.0.1504.963@0.0.1504.963" timestamp="1576365588878" />
+    <state x="460" y="309" key="com.intellij.ide.util.TipDialog/0.0.1504.963@0.0.1504.963" timestamp="1576517585844" />
   </component>
 </project>
