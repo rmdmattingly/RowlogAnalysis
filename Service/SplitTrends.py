@@ -27,17 +27,13 @@ def findSplitTrends(workoutData, SplitManager, DateManager):
                 splitTrendData[name] = {}
             date = DateManager.fetchDateFromTimestampString(workout['time'])
             if date not in splitTrendData[name]:
-                people_id = workout['people_id']
-                averageSplitByDate = findAverageSplitByDate(workout['time'], workoutData, people_id, SplitManager, intensity)
                 splitTrendData[name][date] = {}
-            splitTrendData[name][date][intensity] = averageSplitByDate
+                splitTrendData[name][date][intensity] = 0
+            if intensity not in splitTrendData[name][date]:
+                splitTrendData[name][date][intensity] = 0
+            splitTrendData[name][date][intensity] += SplitManager.convertSplitToSeconds(workout['avg_split'])
+    averageData = {}
     return splitTrendData
 
 def run(workoutData, SplitManager, DateManager):
     return findSplitTrends(workoutData, SplitManager, DateManager)
-
-
-            
-            
-            
-            
