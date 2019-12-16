@@ -64,6 +64,13 @@ def totalMetersPerSide(args):
     from Service import TotalMetersPerSide
     return TotalMetersPerSide.run(getWorkoutData(teamCode=args[1], orderBy='wid', comment=''), getPeopleData(teamCode=args[1]))
 
+def percentOfMeters(args):
+    from Core.Activities import Activities
+    from Data.RowlogApi import getWorkoutData
+    from Data.RowlogApi import getPeopleData
+    from Service import PercentOfMeters
+    return PercentOfMeters.run(getPeopleData(teamCode=args[1]), getWorkoutData(teamCode=args[1], orderBy='wid', comment=''), Activities)
+
 def averageMetersAndSplitBySide(args):
     from Data.RowlogApi import getWorkoutData
     from Data.RowlogApi import getPeopleData
@@ -85,6 +92,7 @@ switcher = {
     'invalidService': invalidService,
     'individualContributions': individualContributions,
     'longestWorkoutPerDay': longestWorkoutPerDay,
+    'percentOfMeters': percentOfMeters,
     'searchComments': searchComments,
     'splitTrends': splitTrends,
     'totalMetersPerSide': totalMetersPerSide,
