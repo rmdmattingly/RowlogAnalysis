@@ -4,18 +4,6 @@ def isValidIntensity(intensity):
 def isValidActivity(activity):
  return activity == 'Erg'
 
-def findAverageSplitByDate(date, workoutData, people_id, SplitManager, intensity):
-    totalSplitSeconds = 0
-    workoutCount = 0
-    for workout in workoutData:
-        if workout['people_id'] == people_id and workout['time'] == date and workout['intensity'] == intensity:
-            workoutCount += 1
-            totalSplitSeconds = SplitManager.convertSplitToSeconds(workout['avg_split'])
-    if workoutCount > 0:
-        averageSplitSeconds = totalSplitSeconds/workoutCount
-        return SplitManager.convertSecondsToSplit(averageSplitSeconds)
-    return None
-
 def findSplitTrends(workoutData, SplitManager, DateManager):
     orderedWorkoutData = DateManager.getWorkoutsDataChronologically(workoutData)
     splitTrendData = {}
@@ -47,7 +35,6 @@ def findSplitTrends(workoutData, SplitManager, DateManager):
                 calculatedAverage = splitTrendData[name][date][intensity]/workoutCount[name][date][intensity]
                 averageData[name][date][intensity] = SplitManager.convertSecondsToSplit(calculatedAverage)
     return averageData
-
 
 def run(workoutData, SplitManager, DateManager):
     return findSplitTrends(workoutData, SplitManager, DateManager)
