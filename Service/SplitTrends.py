@@ -42,9 +42,11 @@ def findSplitTrends(workoutData, SplitManager, DateManager):
     for name, nameValues in splitTrendData.items():
         averageData[name] = {}
         for date, dateValues in nameValues.items():
+            averageData[name][date] = {}
             for intensity, split in dateValues.items():
-                print(name, date, intensity, split)
-    return None
+                calculatedAverage = splitTrendData[name][date][intensity]/workoutCount[name][date][intensity]
+                averageData[name][date][intensity] = SplitManager.convertSecondsToSplit(calculatedAverage)
+    return averageData
 
 
 def run(workoutData, SplitManager, DateManager):
