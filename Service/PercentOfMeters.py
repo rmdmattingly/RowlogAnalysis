@@ -1,7 +1,6 @@
 def calcPercentOfWork(numOfWork, name, activity):
     num = numOfWork[name][activity.name]['NumberOfWorkouts']
     tot = numOfWork[name]['total']
-    #print(num, tot)
     return round((100 * float(num)/float(tot)), 2)
 
 def getDisplay(workoutsData, Activites):
