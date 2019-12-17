@@ -85,12 +85,18 @@ def splitTrends(args):
     from Service import SplitTrends
     return SplitTrends.run(getWorkoutData(teamCode=args[1], orderBy='wid', comment=''), SplitManager, DateManager)
 
+def intensityPercentages(args):
+    from Data.RowlogApi import getWorkoutData
+    from Service import IntensityPercentages1
+    return IntensityPercentages1.run(getWorkoutData(teamCode=args[1], orderBy='wid', comment=''))
+
 switcher = {
     'averageMetersAndSplitBySide': averageMetersAndSplitBySide,
     'averageMetersPerSide': averageMetersPerSide,
     'ergMetersPerDay': ergMetersPerDay,
     'invalidService': invalidService,
     'individualContributions': individualContributions,
+    'intensityPercentages': intensityPercentages,
     'longestWorkoutPerDay': longestWorkoutPerDay,
     'percentOfMeters': percentOfMeters,
     'searchComments': searchComments,
