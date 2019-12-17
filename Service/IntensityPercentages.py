@@ -10,7 +10,6 @@ def intensityCountToPercentage(intensityCount, totalWorkoutCount):
             intensityPercentageData[name][intensity] = percentAtIntensity
     return intensityPercentageData
 
-
 def findIntensityPercentages(workoutData):
     intensityCount = {}
     totalWorkoutCount = {}
