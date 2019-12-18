@@ -68,12 +68,26 @@ def totalMetersPerSide(args):
     from Service import TotalMetersPerSide
     return TotalMetersPerSide.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), getPeopleData(teamCode=args.teamCode))
 
+def percentOfMeters(args):
+    from Core.Activities import Activities
+    from Data.RowlogApi import getWorkoutData
+    from Data.RowlogApi import getPeopleData
+    from Service import PercentOfMeters
+    return PercentOfMeters.run(getPeopleData(teamCode=args.teamCode), getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), Activities)
+
 def averageMetersAndSplitBySide(args):
     from Data.RowlogApi import getWorkoutData
     from Data.RowlogApi import getPeopleData
     from Core import SplitManager
     from Service import AverageMetersAndSplitBySide
     return AverageMetersAndSplitBySide.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), getPeopleData(teamCode=args.teamCode), SplitManager)
+
+def splitTrends(args):
+    from Core import DateManager
+    from Core import SplitManager
+    from Data.RowlogApi import getWorkoutData
+    from Service import SplitTrends
+    return SplitTrends.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), SplitManager, DateManager)
 
 switcher = {
     'averageMetersAndSplitBySide': averageMetersAndSplitBySide,
@@ -82,7 +96,9 @@ switcher = {
     'invalidService': invalidService,
     'individualContributions': individualContributions,
     'longestWorkoutPerDay': longestWorkoutPerDay,
+    'percentOfMeters': percentOfMeters,
     'searchByComment': searchByComment,
+    'splitTrends': splitTrends,
     'totalMetersPerSide': totalMetersPerSide,
     'typesOfWorkoutsPerPerson': typesOfWorkoutsPerPerson,
     'workoutsPerPerson': workoutsPerPerson

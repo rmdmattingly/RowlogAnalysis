@@ -35,10 +35,10 @@ function handleServiceFormatting(service, data, username) {
     }
 }
 
-async function formatData(username, service) {
+async function formatData(username, teamCode, service) {
     document.getElementById('dataContainerHeader').innerHTML = '<h3>' + service + '</h3>';
     document.getElementById('dataContainer').innerHTML = '<div class="loading loading-lg"></div>';
-    let response = await fetch(`https://quikfo.com/rowlog/api/analysis?service=` + service);
+    let response = await fetch(`https://quikfo.com/rowlog/api/analysis?teamCode=` + teamCode + `&service=` + service);
     let data = await response.json();
     html = handleServiceFormatting(service, data, username);
     document.getElementById('dataContainer').innerHTML = html;

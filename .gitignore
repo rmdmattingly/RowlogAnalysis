@@ -1,4 +1,5 @@
 __pycache__
+.idea
 .DS_Store
 pip-selfcheck.json
 Service/__pycache__
@@ -8,3 +9,4 @@ bin/
 lib/
 pip-selfcheck.json
 pyvenv.cfg
+*.xml
