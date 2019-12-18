@@ -88,7 +88,7 @@ def splitTrends(args):
 def intensityPercentages(args):
     from Data.RowlogApi import getWorkoutData
     from Service import IntensityPercentages
-    return IntensityPercentages.run(getWorkoutData(teamCode=args[1], orderBy='wid', comment=''))
+    return IntensityPercentages.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''))
 
 switcher = {
     'averageMetersAndSplitBySide': averageMetersAndSplitBySide,
