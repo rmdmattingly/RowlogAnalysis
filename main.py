@@ -72,7 +72,7 @@ def percentOfMeters(args):
     from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
     from Service import PercentOfMeters
-    return PercentOfMeters.run(getPeopleData(teamCode=args.teamCode), getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), Activities)
+    return PercentOfMeters.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), Activities)
 
 def averageMetersAndSplitBySide(args):
     from Data.RowlogApi import getWorkoutData
