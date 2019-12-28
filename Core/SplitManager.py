@@ -15,5 +15,7 @@ def convertSplitToSeconds(splitTime):
 # call this function to convert seconds like 95.6 to a split 1:35.6 -- makes it easier to display data
 def convertSecondsToSplit(sec):
     min = int(math.floor(float(sec) / 60))
-    sec = float(sec) - (min*60)
+    sec = round(float(sec) - (min*60), 1)
+    if (sec < 10):
+        sec = '0' + str(sec)
     return str(min) + ':' + str(sec)

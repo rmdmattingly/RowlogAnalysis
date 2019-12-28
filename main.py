@@ -1,21 +1,28 @@
-import sys
+import argparse
 import json
+import sys
 from pprint import pprint
 
 def parseInput():
-    if len(sys.argv) > 1:
-        return sys.argv
-    return ['invalidService']
+    from Core.ArgumentParser import createArgumentParser
+    parser = createArgumentParser()
+    return parser.parse_args()
 
 def invalidService(args):
     return 'Invalid Service'
+
+def averageMetersPerSide(args):
+    from Data.RowlogApi import getWorkoutData
+    from Data.RowlogApi import getPeopleData
+    from Service import AverageMetersPerSide
+    return AverageMetersPerSide.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), getPeopleData(teamCode=args.teamCode))
 
 def ergMetersPerDay(args):
     from Core import DateManager
     from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
     from Service import ErgMetersPerDay
-    return ErgMetersPerDay.run(getWorkoutData(orderBy='time', comment=''), Activities, DateManager)
+    return ErgMetersPerDay.run(getWorkoutData(teamCode=args.teamCode, orderBy='time', comment=''), Activities, DateManager)
 
 def individualContributions(args):
     from Core import DateManager
@@ -23,30 +30,68 @@ def individualContributions(args):
     from Data.RowlogApi import getPeopleData
     from Data.RowlogApi import getWorkoutData
     from Service import IndividualContributions
-    return IndividualContributions.run(getWorkoutData(orderBy='time', comment=''), getPeopleData(), DateManager)
+    return IndividualContributions.run(getWorkoutData(teamCode=args.teamCode, orderBy='time', comment=''), getPeopleData(teamCode=args.teamCode), DateManager)
+
+def searchByComment(args):
+    from Data.RowlogApi import getWorkoutData
+    if args.query is not None:
+        return getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=args.query)
+    else:
+        return 'Inavlid Service Call'
 
 def typesOfWorkoutsPerPerson(args):
     from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
     from Service import TypesOfWorkoutsPerPerson
-    return TypesOfWorkoutsPerPerson.run(getWorkoutData(orderBy='wid', comment=''), Activities)
-
-def workoutsPerPerson(args):
-    from Data.RowlogApi import getWorkoutData
-    from Service import WorkoutsPerPerson
-    return WorkoutsPerPerson.run(getWorkoutData(orderBy='wid', comment=''))
+    return TypesOfWorkoutsPerPerson.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), Activities)
 
 def totalMetersPerSide(args):
     from Data.RowlogApi import getWorkoutData
     from Data.RowlogApi import getPeopleData
     from Service import TotalMetersPerSide
-    return TotalMetersPerSide.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData())
+    return TotalMetersPerSide.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), getPeopleData(teamCode=args.teamCode))
 
-def averageMetersPerSide(args):
+def longestWorkoutPerDay(args):
+    from Core import DateManager
+    from Data.RowlogApi import getWorkoutData
+    from Service import LongestWorkoutPerDay
+    return LongestWorkoutPerDay.run(getWorkoutData(teamCode=args.teamCode, orderBy='time', comment=''), DateManager)
+
+def workoutsPerPerson(args):
+    from Data.RowlogApi import getWorkoutData
+    from Service import WorkoutsPerPerson
+    return WorkoutsPerPerson.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''))
+
+def totalMetersPerSide(args):
     from Data.RowlogApi import getWorkoutData
     from Data.RowlogApi import getPeopleData
-    from Service import AverageMetersPerSide
-    return AverageMetersPerSide.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData())
+    from Service import TotalMetersPerSide
+    return TotalMetersPerSide.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), getPeopleData(teamCode=args.teamCode))
+
+def percentOfMeters(args):
+    from Core.Activities import Activities
+    from Data.RowlogApi import getWorkoutData
+    from Service import PercentOfMeters
+    return PercentOfMeters.run(getPeopleData(teamCode=args.teamCode), getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), Activities)
+
+def averageMetersAndSplitBySide(args):
+    from Data.RowlogApi import getWorkoutData
+    from Data.RowlogApi import getPeopleData
+    from Core import SplitManager
+    from Service import AverageMetersAndSplitBySide
+    return AverageMetersAndSplitBySide.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), getPeopleData(teamCode=args.teamCode), SplitManager)
+
+def splitTrends(args):
+    from Core import DateManager
+    from Core import SplitManager
+    from Data.RowlogApi import getWorkoutData
+    from Service import SplitTrends
+    return SplitTrends.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), SplitManager, DateManager)
+
+def intensityPercentages(args):
+    from Data.RowlogApi import getWorkoutData
+    from Service import IntensityPercentages
+    return IntensityPercentages.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''))
 
 def avgSplitByBoat(args):
     from Data.RowlogApi import getWorkoutData
@@ -57,19 +102,24 @@ def avgSplitByBoat(args):
 
 
 switcher = {
+    'averageMetersAndSplitBySide': averageMetersAndSplitBySide,
     'averageMetersPerSide': averageMetersPerSide,
     'avgSplitByBoat': avgSplitByBoat,
     'ergMetersPerDay': ergMetersPerDay,
     'invalidService': invalidService,
     'individualContributions': individualContributions,
+    'intensityPercentages': intensityPercentages,
+    'longestWorkoutPerDay': longestWorkoutPerDay,
+    'percentOfMeters': percentOfMeters,
+    'searchByComment': searchByComment,
+    'splitTrends': splitTrends,
     'totalMetersPerSide': totalMetersPerSide,
     'typesOfWorkoutsPerPerson': typesOfWorkoutsPerPerson,
     'workoutsPerPerson': workoutsPerPerson
-    
 }
- 
+
 def serviceSwitch(arguments):
-    service = switcher.get(arguments[1], invalidService)
+    service = switcher.get(arguments.service, invalidService)
     return service(arguments)
 
 output = serviceSwitch(parseInput())

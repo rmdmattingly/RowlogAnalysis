@@ -8,7 +8,7 @@ def getWorkoutsPerPerson(workoutsData):
         if name not in workoutsPerPerson:
             workoutsPerPerson[name] = 0
         workoutsPerPerson[name] += 1
-    return sortDictionaryByValues(workoutsPerPerson)
+    return workoutsPerPerson
 
 def run(workoutsData):
     return getWorkoutsPerPerson(workoutsData)
