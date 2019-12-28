@@ -27,7 +27,6 @@ def calculateBoatAverageSplit(workoutData, peopleData, boating, SplitManager):
     averageSplit = SplitManager.convertSecondsToSplit(averageSplitInSeconds)
     return averageSplit
 
-
 def run(workoutData, peopleData, SplitManager):
     output = {}
     output['1v'] = calculateBoatAverageSplit(workoutData, peopleData, '1v', SplitManager)
@@ -35,7 +34,3 @@ def run(workoutData, peopleData, SplitManager):
     output['3v'] = calculateBoatAverageSplit(workoutData, peopleData, '3v', SplitManager)
     output['4v+'] = calculateBoatAverageSplit(workoutData, peopleData, '4v+', SplitManager)
     return output
-
-
-                
-    

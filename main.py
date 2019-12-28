@@ -98,8 +98,7 @@ def avgSplitByBoat(args):
     from Data.RowlogApi import getPeopleData
     from Core import SplitManager
     from Service import AvgSplitByBoat
-    return AvgSplitByBoat.run(getWorkoutData(orderBy='wid', comment=''), getPeopleData(), SplitManager)
-
+    return AvgSplitByBoat.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), getPeopleData(teamCode=args.teamCode), SplitManager)
 
 switcher = {
     'averageMetersAndSplitBySide': averageMetersAndSplitBySide,
