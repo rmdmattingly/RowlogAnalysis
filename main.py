@@ -13,14 +13,22 @@ def runBasicTest(args, switcher):
     output["Errors"] = {}
     serviceNum = len(switcher.keys())
     i = 0
+    noTest = ["basicTest", "getAvailableServices"]
     for service in switcher.keys():
         try:
-            if service != "basicTest":
+            if service not in noTest:
                 switcher[service](args)
         except Exception as e:
             output["Errors"][service] = "ERROR: " + str(e)
         i += 1
         print("Progress:", round(i / serviceNum, 2))
+    return output
+
+def getAvailableServices(args, switcher):
+    output = {}
+    output['services'] = []
+    for service in switcher.keys():
+        output['services'].append(service)
     return output
 
 def invalidService(args):
@@ -122,6 +130,9 @@ switcher = {
     ## test keys ##
     'basicTest': runBasicTest,
 
+    ## metadata keys
+    'getAvailableServices': getAvailableServices,
+
     ## service keys ##
     'averageMetersAndSplitBySide': averageMetersAndSplitBySide,
     'averageMetersPerSide': averageMetersPerSide,
@@ -142,7 +153,8 @@ switcher = {
 
 def serviceSwitch(arguments):
     service = switcher.get(arguments.service, invalidService)
-    if arguments.service == "basicTest":
+    switcherRequired = ["basicTest", "getAvailableServices"]
+    if arguments.service in switcherRequired:
         return service(arguments, switcher)
     return service(arguments)
 
