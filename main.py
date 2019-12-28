@@ -26,6 +26,29 @@ def runBasicTest(args, switcher):
 def invalidService(args):
     return 'Invalid Service'
 
+def averageMetersAndSplitBySide(args):
+    from Data.RowlogApi import getWorkoutData
+    from Data.RowlogApi import getPeopleData
+    from Core import SplitManager
+    from Service import AverageMetersAndSplitBySide
+    return AverageMetersAndSplitBySide.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), getPeopleData(teamCode=args.teamCode), SplitManager)
+
+def averageMetersPerWeekByBoat(args):
+    from Data.RowlogApi import getWorkoutData
+    from Data.RowlogApi import getPeopleData
+    from Core import BoatManager
+    from Core import SplitManager
+    from Service import AverageMetersPerWeekByBoat
+    return AverageMetersPerWeekByBoat.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), getPeopleData(teamCode=args.teamCode), SplitManager, BoatManager)
+
+def averageSplitByBoat(args):
+    from Data.RowlogApi import getWorkoutData
+    from Data.RowlogApi import getPeopleData
+    from Core import BoatManager
+    from Core import SplitManager
+    from Service import AverageSplitByBoat
+    return AverageSplitByBoat.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), getPeopleData(teamCode=args.teamCode), SplitManager, BoatManager)
+
 def averageMetersPerSide(args):
     from Data.RowlogApi import getWorkoutData
     from Data.RowlogApi import getPeopleData
@@ -47,8 +70,11 @@ def individualContributions(args):
     from Service import IndividualContributions
     return IndividualContributions.run(getWorkoutData(teamCode=args.teamCode, orderBy='time', comment=''), getPeopleData(teamCode=args.teamCode), DateManager)
 
-<<<<<<< Updated upstream
-=======
+def intensityPercentages(args):
+    from Data.RowlogApi import getWorkoutData
+    from Service import IntensityPercentages
+    return IntensityPercentages.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''))
+
 def longestWorkoutPerDay(args):
     from Core import DateManager
     from Data.RowlogApi import getWorkoutData
@@ -61,13 +87,19 @@ def percentOfMeters(args):
     from Service import PercentOfMeters
     return PercentOfMeters.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), Activities)
 
->>>>>>> Stashed changes
 def searchByComment(args):
     from Data.RowlogApi import getWorkoutData
     if args.query is not None:
         return getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=args.query)
     else:
         return 'Inavlid Service Call'
+
+def splitTrends(args):
+    from Core import DateManager
+    from Core import SplitManager
+    from Data.RowlogApi import getWorkoutData
+    from Service import SplitTrends
+    return SplitTrends.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), SplitManager, DateManager)
 
 def typesOfWorkoutsPerPerson(args):
     from Core.Activities import Activities
@@ -81,47 +113,10 @@ def totalMetersPerSide(args):
     from Service import TotalMetersPerSide
     return TotalMetersPerSide.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), getPeopleData(teamCode=args.teamCode))
 
-def longestWorkoutPerDay(args):
-    from Core import DateManager
-    from Data.RowlogApi import getWorkoutData
-    from Service import LongestWorkoutPerDay
-    return LongestWorkoutPerDay.run(getWorkoutData(teamCode=args.teamCode, orderBy='time', comment=''), DateManager)
-
 def workoutsPerPerson(args):
     from Data.RowlogApi import getWorkoutData
     from Service import WorkoutsPerPerson
     return WorkoutsPerPerson.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''))
-
-def totalMetersPerSide(args):
-    from Data.RowlogApi import getWorkoutData
-    from Data.RowlogApi import getPeopleData
-    from Service import TotalMetersPerSide
-    return TotalMetersPerSide.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), getPeopleData(teamCode=args.teamCode))
-
-def percentOfMeters(args):
-    from Core.Activities import Activities
-    from Data.RowlogApi import getWorkoutData
-    from Service import PercentOfMeters
-    return PercentOfMeters.run(getPeopleData(teamCode=args.teamCode), getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), Activities)
-
-def averageMetersAndSplitBySide(args):
-    from Data.RowlogApi import getWorkoutData
-    from Data.RowlogApi import getPeopleData
-    from Core import SplitManager
-    from Service import AverageMetersAndSplitBySide
-    return AverageMetersAndSplitBySide.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), getPeopleData(teamCode=args.teamCode), SplitManager)
-
-def splitTrends(args):
-    from Core import DateManager
-    from Core import SplitManager
-    from Data.RowlogApi import getWorkoutData
-    from Service import SplitTrends
-    return SplitTrends.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), SplitManager, DateManager)
-
-def intensityPercentages(args):
-    from Data.RowlogApi import getWorkoutData
-    from Service import IntensityPercentages
-    return IntensityPercentages.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''))
 
 switcher = {
     ## test keys ##
@@ -130,6 +125,8 @@ switcher = {
     ## service keys ##
     'averageMetersAndSplitBySide': averageMetersAndSplitBySide,
     'averageMetersPerSide': averageMetersPerSide,
+    'averageMetersPerWeekByBoat': averageMetersPerWeekByBoat,
+    'averageSplitByBoat': averageSplitByBoat,
     'ergMetersPerDay': ergMetersPerDay,
     'invalidService': invalidService,
     'individualContributions': individualContributions,

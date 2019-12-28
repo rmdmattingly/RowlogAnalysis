@@ -5,7 +5,10 @@ def calcSeconds(min, sec):
 
 def parseStringToMinAndSec(splitTime):
     minsAndSecArr = splitTime.split(':')
-    return minsAndSecArr[0], minsAndSecArr[1]
+    try:
+        return minsAndSecArr[0], minsAndSecArr[1]
+    except IndexError:
+        return 0, 0
     
 # call this function to convert a split like 1:30.6 to seconds 90.6 -- makes it easier to rank by split
 def convertSplitToSeconds(splitTime):
