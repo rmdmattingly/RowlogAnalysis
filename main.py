@@ -8,6 +8,21 @@ def parseInput():
     parser = createArgumentParser()
     return parser.parse_args()
 
+def runBasicTest(args, switcher):
+    output = {}
+    output["Errors"] = {}
+    serviceNum = len(switcher.keys())
+    i = 0
+    for service in switcher.keys():
+        try:
+            if service != "basicTest":
+                switcher[service](args)
+        except Exception as e:
+            output["Errors"][service] = "ERROR: " + str(e)
+        i += 1
+        print("Progress:", round(i / serviceNum, 2))
+    return output
+
 def invalidService(args):
     return 'Invalid Service'
 
@@ -55,6 +70,11 @@ def individualContributions(args):
     from Service import IndividualContributions
     return IndividualContributions.run(getWorkoutData(teamCode=args.teamCode, orderBy='time', comment=''), getPeopleData(teamCode=args.teamCode), DateManager)
 
+def intensityPercentages(args):
+    from Data.RowlogApi import getWorkoutData
+    from Service import IntensityPercentages
+    return IntensityPercentages.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''))
+
 def longestWorkoutPerDay(args):
     from Core import DateManager
     from Data.RowlogApi import getWorkoutData
@@ -65,7 +85,7 @@ def percentOfMeters(args):
     from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
     from Service import PercentOfMeters
-    return PercentOfMeters.run(getPeopleData(teamCode=args.teamCode), getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), Activities)
+    return PercentOfMeters.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), Activities)
 
 def searchByComment(args):
     from Data.RowlogApi import getWorkoutData
@@ -98,12 +118,11 @@ def workoutsPerPerson(args):
     from Service import WorkoutsPerPerson
     return WorkoutsPerPerson.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''))
 
-def intensityPercentages(args):
-    from Data.RowlogApi import getWorkoutData
-    from Service import IntensityPercentages
-    return IntensityPercentages.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''))
-
 switcher = {
+    ## test keys ##
+    'basicTest': runBasicTest,
+
+    ## service keys ##
     'averageMetersAndSplitBySide': averageMetersAndSplitBySide,
     'averageMetersPerSide': averageMetersPerSide,
     'averageMetersPerWeekByBoat': averageMetersPerWeekByBoat,
@@ -123,6 +142,8 @@ switcher = {
 
 def serviceSwitch(arguments):
     service = switcher.get(arguments.service, invalidService)
+    if arguments.service == "basicTest":
+        return service(arguments, switcher)
     return service(arguments)
 
 output = serviceSwitch(parseInput())
