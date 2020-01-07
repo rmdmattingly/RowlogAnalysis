@@ -6,6 +6,7 @@ class ChartDataset:
         self.backgroundColor = []
         self.borderColor = []
         self.borderWidth = 1
+        self.hidden = False
 
     def setLabel(self, label):
         self.label = label
@@ -22,6 +23,9 @@ class ChartDataset:
     def setBorderWidth(self, width):
         self.borderWidth = width
 
+    def setHidden(self, hidden):
+        self.hidden = hidden
+
     def toJson(self):
         return {
             "label": self.label,
@@ -29,4 +33,5 @@ class ChartDataset:
             "backgroundColor": self.backgroundColor,
             "borderColor": self.borderColor,
             "borderWidth": self.borderWidth,
+            "hidden": self.hidden
         }
