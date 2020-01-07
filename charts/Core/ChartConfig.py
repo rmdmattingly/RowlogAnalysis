@@ -17,7 +17,7 @@ class ChartConfig:
         jsonifiedDatasets = []
         for dataset in self.data['data']:
             jsonifiedDatasets.append(dataset.toJson())
-        return {'data': jsonifiedDatasets}
+        return jsonifiedDatasets
 
     def toJson(self):
         return {
