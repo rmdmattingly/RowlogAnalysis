@@ -23,9 +23,9 @@ def individualContributions():
     from IndividualContributions import IndividualContributions
     from Core import ColorHelper
     teamCode = request.args.get('teamCode')
-    service = 'individualContributions'
-    data = getService(teamCode, service)
-    return IndividualContributions.formatData(ChartConfig, ChartOptions, ChartDataset, data, ColorHelper)
+    name = request.args.get('name')
+    data = getService(teamCode, 'individualContributions')
+    return IndividualContributions.formatData(ChartConfig, ChartOptions, ChartDataset, ColorHelper, data, name)
 
 if __name__ == '__main__':
     app.run()
