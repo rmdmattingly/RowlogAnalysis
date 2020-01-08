@@ -13,6 +13,9 @@ class ChartConfig:
     def setXAxisData(self, xAxisPoints):
         self.data['labels'] = xAxisPoints
 
+    def addLabel(self, label):
+        self.data['labels'].append(label)
+
     def __jsonifyData(self):
         jsonifiedDatasets = []
         for dataset in self.data['data']:

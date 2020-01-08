@@ -1,5 +1,3 @@
-import random
-
 def getDaysFromUniversalAvg(data):
     days = []
     for key in data.keys():
