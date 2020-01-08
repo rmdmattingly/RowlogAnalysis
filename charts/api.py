@@ -18,7 +18,7 @@ productionReadyChartServices = [
     }),
     ChartService('workoutIntensityBreakdown', 'intensityPercentages', 'Workout Intensity Breakdown', {
         "teamCode": "required",
-        "name": "optional"
+        "name": "required"
     })
 ]
 
