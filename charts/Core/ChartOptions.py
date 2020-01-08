@@ -21,6 +21,9 @@ class ChartOptions:
             }]
         }
 
+    def removeScales(self):
+        self.scales = {}
+
     def toJson(self):
         return {
             "responsive": self.responsive,

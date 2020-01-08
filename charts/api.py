@@ -12,7 +12,14 @@ app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 
 productionReadyChartServices = [
-    ChartService('individualContributions', 'individualContributions', 'Individual Contributions')
+    ChartService('individualContributions', 'individualContributions', 'Individual Contributions', {
+        "teamCode": "required",
+        "name": "optional"
+    }),
+    ChartService('workoutIntensityBreakdown', 'intensityPercentages', 'Workout Intensity Breakdown', {
+        "teamCode": "required",
+        "name": "optional"
+    })
 ]
 
 def getService(teamCode, service):
@@ -35,6 +42,15 @@ def individualContributions():
     name = request.args.get('name')
     data = getService(teamCode, 'individualContributions')
     return IndividualContributions.formatData(ChartConfig, ChartOptions, ChartDataset, ColorHelper, data, name)
+
+@app.route('/workoutIntensityBreakdown', methods=['GET'])
+def workoutIntensityBreakdown():
+    from WorkoutIntensityBreakdown import WorkoutIntensityBreakdown
+    from Core import ColorHelper
+    teamCode = request.args.get('teamCode')
+    name = request.args.get('name')
+    data = getService(teamCode, 'intensityPercentages')
+    return WorkoutIntensityBreakdown.formatData(ChartConfig, ChartOptions, ChartDataset, data, name)
 
 if __name__ == '__main__':
     app.run()

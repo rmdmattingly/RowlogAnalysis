@@ -1,0 +1,444 @@
+App 2419851 output: Traceback (most recent call last):
+App 2419851 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 369, in <module>
+App 2419851 output:     app_module = load_app()
+App 2419851 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 76, in load_app
+App 2419851 output:     return imp.load_source('passenger_wsgi', startup_file)
+App 2419851 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib64/python3.6/imp.py", line 172, in load_source
+App 2431806 output: Traceback (most recent call last):
+App 2431806 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 369, in <module>
+App 2431806 output:     app_module = load_app()
+App 2431806 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 76, in load_app
+App 2431806 output:     return imp.load_source('passenger_wsgi', startup_file)
+App 2431806 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib64/python3.6/imp.py", line 172, in load_source
+App 2431806 output:     module = _load(spec)
+App 2431806 output:   File "<frozen importlib._bootstrap>", line 684, in _load
+App 2431806 output:   File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+App 2431806 output:   File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+App 2431806 output:   File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+App 2431806 output:   File "/home/gd2js678rxkx/public_html/api/charts/passenger_wsgi.py", line 1, in <module>
+App 2431806 output:     from api import app as application
+App 2431806 output:   File "/home/gd2js678rxkx/public_html/api/charts/api.py", line 2, in <module>
+App 2431806 output:     import flask
+App 2431806 output: ModuleNotFoundError: No module named 'flask'
+App 2444206 output: Traceback (most recent call last):
+App 2444206 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 369, in <module>
+App 2444206 output:     app_module = load_app()
+App 2444206 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 76, in load_app
+App 2444206 output:     return imp.load_source('passenger_wsgi', startup_file)
+App 2444206 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib64/python3.6/imp.py", line 172, in load_source
+App 2444206 output:     module = _load(spec)
+App 2444206 output:   File "<frozen importlib._bootstrap>", line 684, in _load
+App 2444206 output:   File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+App 2444206 output:   File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+App 2444206 output:   File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+App 2444206 output:   File "/home/gd2js678rxkx/public_html/api/charts/passenger_wsgi.py", line 1, in <module>
+App 2444206 output:     from api import app as application
+App 2444206 output:   File "/home/gd2js678rxkx/public_html/api/charts/api.py", line 3, in <module>
+App 2444206 output:     import requests
+App 2444206 output: ModuleNotFoundError: No module named 'requests'
+App 2447294 output:  * Serving Flask app "api" (lazy loading)
+App 2447294 output:  * Environment: production
+App 2447294 output:    WARNING: This is a development server. Do not use it in a production deployment.
+App 2447294 output:    Use a production WSGI server instead.
+App 2447294 output:  * Debug mode: on
+App 2447294 output: [ pid=2447294, time=2020-01-07 08:14:33,744 ]:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+App 2447294 output: [ pid=2447294, time=2020-01-07 08:14:33,746 ]:  * Restarting with stat
+App 2447294 output: [ pid=2448241, time=2020-01-07 08:14:34,271 ]:  * Debugger is active!
+App 2447294 output: [ pid=2448241, time=2020-01-07 08:14:34,277 ]:  * Debugger PIN: 135-407-222
+App 2456250 output:  * Serving Flask app "api" (lazy loading)
+App 2456250 output:  * Environment: production
+App 2456250 output:    WARNING: This is a development server. Do not use it in a production deployment.
+App 2456250 output:    Use a production WSGI server instead.
+App 2456250 output:  * Debug mode: on
+App 2456250 output: Traceback (most recent call last):
+App 2456250 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 369, in <module>
+App 2456250 output:     app_module = load_app()
+App 2456250 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 76, in load_app
+App 2456250 output:     return imp.load_source('passenger_wsgi', startup_file)
+App 2456250 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib64/python3.6/imp.py", line 172, in load_source
+App 2456250 output:     module = _load(spec)
+App 2456250 output:   File "<frozen importlib._bootstrap>", line 684, in _load
+App 2456250 output:   File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+App 2456250 output:   File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+App 2456250 output:   File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+App 2456250 output:   File "/home/gd2js678rxkx/public_html/api/charts/passenger_wsgi.py", line 1, in <module>
+App 2456250 output:     from api import app as application
+App 2456250 output:   File "/home/gd2js678rxkx/public_html/api/charts/api.py", line 34, in <module>
+App 2456250 output:     app.run()
+App 2456250 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 990, in run
+App 2456250 output:     run_simple(host, port, self, **options)
+App 2456250 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/werkzeug/serving.py", line 988, in run_simple
+App 2456250 output:     s.bind(server_address)
+App 2456250 output: OSError: [Errno 98] Address already in use
+App 2458817 output:  * Serving Flask app "api" (lazy loading)
+App 2458817 output:  * Environment: production
+App 2458817 output:    WARNING: This is a development server. Do not use it in a production deployment.
+App 2458817 output:    Use a production WSGI server instead.
+App 2458817 output:  * Debug mode: on
+App 2458817 output: Traceback (most recent call last):
+App 2458817 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 369, in <module>
+App 2458817 output:     app_module = load_app()
+App 2458817 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 76, in load_app
+App 2458817 output:     return imp.load_source('passenger_wsgi', startup_file)
+App 2458817 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib64/python3.6/imp.py", line 172, in load_source
+App 2458817 output:     module = _load(spec)
+App 2458817 output:   File "<frozen importlib._bootstrap>", line 684, in _load
+App 2458817 output:   File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+App 2458817 output:   File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+App 2458817 output:   File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+App 2458817 output:   File "/home/gd2js678rxkx/public_html/api/charts/passenger_wsgi.py", line 1, in <module>
+App 2458817 output:     from api import app as application
+App 2458817 output:   File "/home/gd2js678rxkx/public_html/api/charts/api.py", line 34, in <module>
+App 2458817 output:     app.run()
+App 2458817 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 990, in run
+App 2458817 output:     run_simple(host, port, self, **options)
+App 2458817 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/werkzeug/serving.py", line 988, in run_simple
+App 2458817 output:     s.bind(server_address)
+App 2458817 output: OSError: [Errno 98] Address already in use
+App 2494778 output: https://rows.tech/api/analysis?teamCode=fa6ztXp&service=individualContributions
+App 2494778 output: https://rows.tech/api/analysis?teamCode=fa6ztXp&service=individualContributions
+App 2494778 output: https://rows.tech/api/analysis?teamCode=None&service=individualContributions
+App 2494778 output: https://rows.tech/api/analysis?teamCode=fa6ztXp&service=individualContributions
+App 2494778 output: https://rows.tech/api/analysis?teamCode=fa6ztXp&service=individualContributions
+App 1473414 output: [ pid=1473414, time=2020-01-07 19:33:24,922 ]: WSGI application raised an exception!
+App 1473414 output: Traceback (most recent call last):
+App 1473414 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 199, in main_loop
+App 1473414 output:     socket_hijacked = self.process_request(env, input_stream, client)
+App 1473414 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 333, in process_request
+App 1473414 output:     result = self.app(env, start_response)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2463, in __call__
+App 1473414 output:     return self.wsgi_app(environ, start_response)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2449, in wsgi_app
+App 1473414 output:     response = self.handle_exception(e)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1866, in handle_exception
+App 1473414 output:     reraise(exc_type, exc_value, tb)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+App 1473414 output:     raise value
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+App 1473414 output:     response = self.full_dispatch_request()
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+App 1473414 output:     rv = self.handle_user_exception(e)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+App 1473414 output:     reraise(exc_type, exc_value, tb)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+App 1473414 output:     raise value
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+App 1473414 output:     rv = self.dispatch_request()
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+App 1473414 output:     return self.view_functions[rule.endpoint](**req.view_args)
+App 1473414 output:   File "/home/gd2js678rxkx/public_html/api/charts/api.py", line 48, in workoutIntensityBreakdown
+App 1473414 output:     from WorkoutIntensityBreakdown import WorkoutIntensityBreakdown
+App 1473414 output: ModuleNotFoundError: No module named 'WorkoutIntensityBreakdown'
+App 1473414 output: 
+App 1473414 output: [ pid=1473414, time=2020-01-07 19:33:30,662 ]: WSGI application raised an exception!
+App 1473414 output: Traceback (most recent call last):
+App 1473414 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 199, in main_loop
+App 1473414 output:     socket_hijacked = self.process_request(env, input_stream, client)
+App 1473414 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 333, in process_request
+App 1473414 output:     result = self.app(env, start_response)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2463, in __call__
+App 1473414 output:     return self.wsgi_app(environ, start_response)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2449, in wsgi_app
+App 1473414 output:     response = self.handle_exception(e)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1866, in handle_exception
+App 1473414 output:     reraise(exc_type, exc_value, tb)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+App 1473414 output:     raise value
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+App 1473414 output:     response = self.full_dispatch_request()
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+App 1473414 output:     rv = self.handle_user_exception(e)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+App 1473414 output:     reraise(exc_type, exc_value, tb)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+App 1473414 output:     raise value
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+App 1473414 output:     rv = self.dispatch_request()
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+App 1473414 output:     return self.view_functions[rule.endpoint](**req.view_args)
+App 1473414 output:   File "/home/gd2js678rxkx/public_html/api/charts/api.py", line 48, in workoutIntensityBreakdown
+App 1473414 output:     from WorkoutIntensityBreakdown import WorkoutIntensityBreakdown
+App 1473414 output: ModuleNotFoundError: No module named 'WorkoutIntensityBreakdown'
+App 1473414 output: 
+App 1473414 output: [ pid=1473414, time=2020-01-07 19:33:40,050 ]: WSGI application raised an exception!
+App 1473414 output: Traceback (most recent call last):
+App 1473414 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 199, in main_loop
+App 1473414 output:     socket_hijacked = self.process_request(env, input_stream, client)
+App 1473414 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 333, in process_request
+App 1473414 output:     result = self.app(env, start_response)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2463, in __call__
+App 1473414 output:     return self.wsgi_app(environ, start_response)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2449, in wsgi_app
+App 1473414 output:     response = self.handle_exception(e)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1866, in handle_exception
+App 1473414 output:     reraise(exc_type, exc_value, tb)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+App 1473414 output:     raise value
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+App 1473414 output:     response = self.full_dispatch_request()
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+App 1473414 output:     rv = self.handle_user_exception(e)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+App 1473414 output:     reraise(exc_type, exc_value, tb)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+App 1473414 output:     raise value
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+App 1473414 output:     rv = self.dispatch_request()
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+App 1473414 output:     return self.view_functions[rule.endpoint](**req.view_args)
+App 1473414 output:   File "/home/gd2js678rxkx/public_html/api/charts/api.py", line 48, in workoutIntensityBreakdown
+App 1473414 output:     from WorkoutIntensityBreakdown import WorkoutIntensityBreakdown
+App 1473414 output: ModuleNotFoundError: No module named 'WorkoutIntensityBreakdown'
+App 1473414 output: 
+App 1473414 output: [ pid=1473414, time=2020-01-07 19:33:46,720 ]: WSGI application raised an exception!
+App 1473414 output: Traceback (most recent call last):
+App 1473414 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 199, in main_loop
+App 1473414 output:     socket_hijacked = self.process_request(env, input_stream, client)
+App 1473414 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 333, in process_request
+App 1473414 output:     result = self.app(env, start_response)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2463, in __call__
+App 1473414 output:     return self.wsgi_app(environ, start_response)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2449, in wsgi_app
+App 1473414 output:     response = self.handle_exception(e)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1866, in handle_exception
+App 1473414 output:     reraise(exc_type, exc_value, tb)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+App 1473414 output:     raise value
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+App 1473414 output:     response = self.full_dispatch_request()
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+App 1473414 output:     rv = self.handle_user_exception(e)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+App 1473414 output:     reraise(exc_type, exc_value, tb)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+App 1473414 output:     raise value
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+App 1473414 output:     rv = self.dispatch_request()
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+App 1473414 output:     return self.view_functions[rule.endpoint](**req.view_args)
+App 1473414 output:   File "/home/gd2js678rxkx/public_html/api/charts/api.py", line 48, in workoutIntensityBreakdown
+App 1473414 output:     from WorkoutIntensityBreakdown import WorkoutIntensityBreakdown
+App 1473414 output: ModuleNotFoundError: No module named 'WorkoutIntensityBreakdown'
+App 1473414 output: 
+App 1473414 output: [ pid=1473414, time=2020-01-07 19:34:05,018 ]: WSGI application raised an exception!
+App 1473414 output: Traceback (most recent call last):
+App 1473414 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 199, in main_loop
+App 1473414 output:     socket_hijacked = self.process_request(env, input_stream, client)
+App 1473414 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 333, in process_request
+App 1473414 output:     result = self.app(env, start_response)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2463, in __call__
+App 1473414 output:     return self.wsgi_app(environ, start_response)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2449, in wsgi_app
+App 1473414 output:     response = self.handle_exception(e)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1866, in handle_exception
+App 1473414 output:     reraise(exc_type, exc_value, tb)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+App 1473414 output:     raise value
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+App 1473414 output:     response = self.full_dispatch_request()
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+App 1473414 output:     rv = self.handle_user_exception(e)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+App 1473414 output:     reraise(exc_type, exc_value, tb)
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+App 1473414 output:     raise value
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+App 1473414 output:     rv = self.dispatch_request()
+App 1473414 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+App 1473414 output:     return self.view_functions[rule.endpoint](**req.view_args)
+App 1473414 output:   File "/home/gd2js678rxkx/public_html/api/charts/api.py", line 48, in workoutIntensityBreakdown
+App 1473414 output:     from WorkoutIntensityBreakdown import WorkoutIntensityBreakdown
+App 1473414 output: ModuleNotFoundError: No module named 'WorkoutIntensityBreakdown'
+App 1473414 output: 
+App 1482301 output: [ pid=1482301, time=2020-01-07 19:35:16,558 ]: WSGI application raised an exception!
+App 1482301 output: Traceback (most recent call last):
+App 1482301 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 199, in main_loop
+App 1482301 output:     socket_hijacked = self.process_request(env, input_stream, client)
+App 1482301 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 333, in process_request
+App 1482301 output:     result = self.app(env, start_response)
+App 1482301 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2463, in __call__
+App 1482301 output:     return self.wsgi_app(environ, start_response)
+App 1482301 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2449, in wsgi_app
+App 1482301 output:     response = self.handle_exception(e)
+App 1482301 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1866, in handle_exception
+App 1482301 output:     reraise(exc_type, exc_value, tb)
+App 1482301 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+App 1482301 output:     raise value
+App 1482301 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+App 1482301 output:     response = self.full_dispatch_request()
+App 1482301 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+App 1482301 output:     rv = self.handle_user_exception(e)
+App 1482301 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+App 1482301 output:     reraise(exc_type, exc_value, tb)
+App 1482301 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+App 1482301 output:     raise value
+App 1482301 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+App 1482301 output:     rv = self.dispatch_request()
+App 1482301 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+App 1482301 output:     return self.view_functions[rule.endpoint](**req.view_args)
+App 1482301 output:   File "/home/gd2js678rxkx/public_html/api/charts/api.py", line 53, in workoutIntensityBreakdown
+App 1482301 output:     return WorkoutIntensityBreakdown.formatData(ChartConfig, ChartOptions, ChartDataset, data, name)
+App 1482301 output:   File "/home/gd2js678rxkx/public_html/api/charts/WorkoutIntensityBreakdown/WorkoutIntensityBreakdown.py", line 25, in formatData
+App 1482301 output:     chartConfig = populateDataset(data[name], name, ChartDataset, chartConfig)
+App 1482301 output: KeyError: None
+App 1482301 output: 
+App 1484621 output: [ pid=1484621, time=2020-01-07 19:35:39,705 ]: WSGI application raised an exception!
+App 1484621 output: Traceback (most recent call last):
+App 1484621 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 199, in main_loop
+App 1484621 output:     socket_hijacked = self.process_request(env, input_stream, client)
+App 1484621 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 333, in process_request
+App 1484621 output:     result = self.app(env, start_response)
+App 1484621 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2463, in __call__
+App 1484621 output:     return self.wsgi_app(environ, start_response)
+App 1484621 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2449, in wsgi_app
+App 1484621 output:     response = self.handle_exception(e)
+App 1484621 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1866, in handle_exception
+App 1484621 output:     reraise(exc_type, exc_value, tb)
+App 1484621 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+App 1484621 output:     raise value
+App 1484621 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+App 1484621 output:     response = self.full_dispatch_request()
+App 1484621 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+App 1484621 output:     rv = self.handle_user_exception(e)
+App 1484621 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+App 1484621 output:     reraise(exc_type, exc_value, tb)
+App 1484621 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+App 1484621 output:     raise value
+App 1484621 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+App 1484621 output:     rv = self.dispatch_request()
+App 1484621 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+App 1484621 output:     return self.view_functions[rule.endpoint](**req.view_args)
+App 1484621 output:   File "/home/gd2js678rxkx/public_html/api/charts/api.py", line 53, in workoutIntensityBreakdown
+App 1484621 output:     return WorkoutIntensityBreakdown.formatData(ChartConfig, ChartOptions, ChartDataset, data, name)
+App 1484621 output:   File "/home/gd2js678rxkx/public_html/api/charts/WorkoutIntensityBreakdown/WorkoutIntensityBreakdown.py", line 25, in formatData
+App 1484621 output:     chartConfig = populateDataset(data[name], name, ChartDataset, chartConfig)
+App 1484621 output: KeyError: None
+App 1484621 output: 
+App 1484621 output: [ pid=1484621, time=2020-01-07 19:35:51,942 ]: WSGI application raised an exception!
+App 1484621 output: Traceback (most recent call last):
+App 1484621 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 199, in main_loop
+App 1484621 output:     socket_hijacked = self.process_request(env, input_stream, client)
+App 1484621 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 333, in process_request
+App 1484621 output:     result = self.app(env, start_response)
+App 1484621 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2463, in __call__
+App 1484621 output:     return self.wsgi_app(environ, start_response)
+App 1484621 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2449, in wsgi_app
+App 1484621 output:     response = self.handle_exception(e)
+App 1484621 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1866, in handle_exception
+App 1484621 output:     reraise(exc_type, exc_value, tb)
+App 1484621 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+App 1484621 output:     raise value
+App 1484621 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+App 1484621 output:     response = self.full_dispatch_request()
+App 1484621 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+App 1484621 output:     rv = self.handle_user_exception(e)
+App 1484621 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+App 1484621 output:     reraise(exc_type, exc_value, tb)
+App 1484621 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+App 1484621 output:     raise value
+App 1484621 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+App 1484621 output:     rv = self.dispatch_request()
+App 1484621 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+App 1484621 output:     return self.view_functions[rule.endpoint](**req.view_args)
+App 1484621 output:   File "/home/gd2js678rxkx/public_html/api/charts/api.py", line 53, in workoutIntensityBreakdown
+App 1484621 output:     return WorkoutIntensityBreakdown.formatData(ChartConfig, ChartOptions, ChartDataset, data, name)
+App 1484621 output:   File "/home/gd2js678rxkx/public_html/api/charts/WorkoutIntensityBreakdown/WorkoutIntensityBreakdown.py", line 25, in formatData
+App 1484621 output:     chartConfig = populateDataset(data[name], name, ChartDataset, chartConfig)
+App 1484621 output: KeyError: None
+App 1484621 output: 
+App 1485421 output: [ pid=1485421, time=2020-01-07 19:35:59,986 ]: WSGI application raised an exception!
+App 1485421 output: Traceback (most recent call last):
+App 1485421 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 199, in main_loop
+App 1485421 output:     socket_hijacked = self.process_request(env, input_stream, client)
+App 1485421 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 333, in process_request
+App 1485421 output:     result = self.app(env, start_response)
+App 1485421 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2463, in __call__
+App 1485421 output:     return self.wsgi_app(environ, start_response)
+App 1485421 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2449, in wsgi_app
+App 1485421 output:     response = self.handle_exception(e)
+App 1485421 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1866, in handle_exception
+App 1485421 output:     reraise(exc_type, exc_value, tb)
+App 1485421 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+App 1485421 output:     raise value
+App 1485421 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+App 1485421 output:     response = self.full_dispatch_request()
+App 1485421 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+App 1485421 output:     rv = self.handle_user_exception(e)
+App 1485421 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+App 1485421 output:     reraise(exc_type, exc_value, tb)
+App 1485421 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+App 1485421 output:     raise value
+App 1485421 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+App 1485421 output:     rv = self.dispatch_request()
+App 1485421 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+App 1485421 output:     return self.view_functions[rule.endpoint](**req.view_args)
+App 1485421 output:   File "/home/gd2js678rxkx/public_html/api/charts/api.py", line 53, in workoutIntensityBreakdown
+App 1485421 output:     return WorkoutIntensityBreakdown.formatData(ChartConfig, ChartOptions, ChartDataset, data, name)
+App 1485421 output:   File "/home/gd2js678rxkx/public_html/api/charts/WorkoutIntensityBreakdown/WorkoutIntensityBreakdown.py", line 25, in formatData
+App 1485421 output:     chartConfig = populateDataset(data[name], name, ChartDataset, chartConfig)
+App 1485421 output: KeyError: None
+App 1485421 output: 
+App 1485421 output: [ pid=1485421, time=2020-01-07 19:36:43,775 ]: WSGI application raised an exception!
+App 1485421 output: Traceback (most recent call last):
+App 1485421 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 199, in main_loop
+App 1485421 output:     socket_hijacked = self.process_request(env, input_stream, client)
+App 1485421 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 333, in process_request
+App 1485421 output:     result = self.app(env, start_response)
+App 1485421 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2463, in __call__
+App 1485421 output:     return self.wsgi_app(environ, start_response)
+App 1485421 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2449, in wsgi_app
+App 1485421 output:     response = self.handle_exception(e)
+App 1485421 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1866, in handle_exception
+App 1485421 output:     reraise(exc_type, exc_value, tb)
+App 1485421 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+App 1485421 output:     raise value
+App 1485421 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+App 1485421 output:     response = self.full_dispatch_request()
+App 1485421 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+App 1485421 output:     rv = self.handle_user_exception(e)
+App 1485421 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+App 1485421 output:     reraise(exc_type, exc_value, tb)
+App 1485421 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+App 1485421 output:     raise value
+App 1485421 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+App 1485421 output:     rv = self.dispatch_request()
+App 1485421 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+App 1485421 output:     return self.view_functions[rule.endpoint](**req.view_args)
+App 1485421 output:   File "/home/gd2js678rxkx/public_html/api/charts/api.py", line 53, in workoutIntensityBreakdown
+App 1485421 output:     return WorkoutIntensityBreakdown.formatData(ChartConfig, ChartOptions, ChartDataset, data, name)
+App 1485421 output:   File "/home/gd2js678rxkx/public_html/api/charts/WorkoutIntensityBreakdown/WorkoutIntensityBreakdown.py", line 25, in formatData
+App 1485421 output:     chartConfig = populateDataset(data[name], name, ChartDataset, chartConfig)
+App 1485421 output: KeyError: None
+App 1485421 output: 
+App 1505135 output: [ pid=1505135, time=2020-01-07 19:40:16,607 ]: WSGI application raised an exception!
+App 1505135 output: Traceback (most recent call last):
+App 1505135 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 199, in main_loop
+App 1505135 output:     socket_hijacked = self.process_request(env, input_stream, client)
+App 1505135 output:   File "/opt/passenger-5.3.7-8.el6.cloudlinux/src/helper-scripts/wsgi-loader.py", line 333, in process_request
+App 1505135 output:     result = self.app(env, start_response)
+App 1505135 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2463, in __call__
+App 1505135 output:     return self.wsgi_app(environ, start_response)
+App 1505135 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2449, in wsgi_app
+App 1505135 output:     response = self.handle_exception(e)
+App 1505135 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1866, in handle_exception
+App 1505135 output:     reraise(exc_type, exc_value, tb)
+App 1505135 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+App 1505135 output:     raise value
+App 1505135 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+App 1505135 output:     response = self.full_dispatch_request()
+App 1505135 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+App 1505135 output:     rv = self.handle_user_exception(e)
+App 1505135 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+App 1505135 output:     reraise(exc_type, exc_value, tb)
+App 1505135 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+App 1505135 output:     raise value
+App 1505135 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+App 1505135 output:     rv = self.dispatch_request()
+App 1505135 output:   File "/home/gd2js678rxkx/virtualenv/public_html/api/charts/3.6/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+App 1505135 output:     return self.view_functions[rule.endpoint](**req.view_args)
+App 1505135 output:   File "/home/gd2js678rxkx/public_html/api/charts/api.py", line 53, in workoutIntensityBreakdown
+App 1505135 output:     return WorkoutIntensityBreakdown.formatData(ChartConfig, ChartOptions, ChartDataset, data, name)
+App 1505135 output:   File "/home/gd2js678rxkx/public_html/api/charts/WorkoutIntensityBreakdown/WorkoutIntensityBreakdown.py", line 25, in formatData
+App 1505135 output:     chartOptions.removeScales()
+App 1505135 output: AttributeError: 'ChartOptions' object has no attribute 'removeScales'
+App 1505135 output: 
