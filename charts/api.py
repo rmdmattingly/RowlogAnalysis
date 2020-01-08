@@ -6,9 +6,14 @@ from flask import request, jsonify
 from Core.ChartConfig import ChartConfig
 from Core.ChartOptions import ChartOptions
 from Core.ChartData import ChartDataset
+from Core.ChartService import ChartService
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
+
+productionReadyChartServices = [
+    ChartService('individualContributions', 'individualContributions', 'Individual Contributions')
+]
 
 def getService(teamCode, service):
     url = 'https://rows.tech/api/analysis?teamCode=' + str(teamCode) + '&service=' + str(service)
@@ -16,7 +21,11 @@ def getService(teamCode, service):
 
 @app.route('/', methods=['GET'])
 def home():
-    return 'Charts api is running!'
+    output = {}
+    for service in productionReadyChartServices:
+        chartServiceName = service.getChartServiceName()
+        output[chartServiceName] = service.toJson()
+    return output
 
 @app.route('/individualContributions', methods=['GET'])
 def individualContributions():
