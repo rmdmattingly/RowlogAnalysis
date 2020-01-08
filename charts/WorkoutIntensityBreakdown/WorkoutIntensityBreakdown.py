@@ -9,8 +9,13 @@ def getIntensityColor(intensity, transparency):
     }
     return intensityToColor[intensity]
 
+def createDonutChart(titleText, ChartConfig, ChartOptions):
+    chartOptions = ChartOptions()
+    chartOptions.removeScales()
+    chartOptions.setTitleText(titleText)
+    return ChartConfig('doughnut', chartOptions)
 
-def populateDataset(data, name, ChartDataset, chartConfig):
+def populateDataset(data, ChartDataset, chartConfig):
     dataset = ChartDataset()
     for intensity in data.keys():
         dataset.addData(data[intensity])
@@ -20,9 +25,29 @@ def populateDataset(data, name, ChartDataset, chartConfig):
     chartConfig.addDataset(dataset)
     return chartConfig
 
+def populateTeamDataset(data, ChartDataset, chartConfig):
+    intensityCounts = {
+        "U3": 0,
+        "U2": 0,
+        "U1": 0,
+        "AT": 0,
+        "TR": 0,
+        "Test": 0
+    }
+    total = 0
+    for person in data.keys():
+        for intensity in data[person]:
+            if intensity in intensityCounts.keys():
+                intensityCounts[intensity] += 1
+                total += 1
+    return populateDataset(intensityCounts, ChartDataset, chartConfig)
+
 def formatData(ChartConfig, ChartOptions, ChartDataset, data, name):
-    chartOptions = ChartOptions()
-    chartOptions.removeScales()
-    chartConfig = ChartConfig('doughnut', chartOptions)
-    chartConfig = populateDataset(data[name], name, ChartDataset, chartConfig)
+    chartConfig = createDonutChart("Workout Intensity Breakdown - " + name, ChartConfig, ChartOptions)
+    chartConfig = populateDataset(data[name], ChartDataset, chartConfig)
+    return chartConfig.toJson()
+
+def formatDataTeam(ChartConfig, ChartOptions, ChartDataset, data):
+    chartConfig = createDonutChart("Workout Intensity Breakdown - Team", ChartConfig, ChartOptions)
+    chartConfig = populateTeamDataset(data, ChartDataset, chartConfig)
     return chartConfig.toJson()

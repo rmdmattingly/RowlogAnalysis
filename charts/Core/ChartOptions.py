@@ -24,6 +24,9 @@ class ChartOptions:
     def removeScales(self):
         self.scales = {}
 
+    def setTitleText(self, text):
+        self.title["text"] = text
+
     def toJson(self):
         return {
             "responsive": self.responsive,
