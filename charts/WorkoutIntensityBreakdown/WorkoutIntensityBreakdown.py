@@ -42,6 +42,24 @@ def populateTeamDataset(data, ChartDataset, chartConfig):
                 total += 1
     return populateDataset(intensityCounts, ChartDataset, chartConfig)
 
+def populateBoatDataset(data, boat, peopleToBoat, ChartDataset, chartConfig):
+    intensityCounts = {
+        "U3": 0,
+        "U2": 0,
+        "U1": 0,
+        "AT": 0,
+        "TR": 0,
+        "Test": 0
+    }
+    total = 0
+    for person in data.keys():
+        if peopleToBoat[person] == boat:
+            for intensity in data[person]:
+                if intensity in intensityCounts.keys():
+                    intensityCounts[intensity] += 1
+                    total += 1
+    return populateDataset(intensityCounts, ChartDataset, chartConfig)
+
 def formatData(ChartConfig, ChartOptions, ChartDataset, data, name):
     chartConfig = createDonutChart("Workout Intensity Breakdown - " + name, ChartConfig, ChartOptions)
     chartConfig = populateDataset(data[name], ChartDataset, chartConfig)
@@ -50,4 +68,10 @@ def formatData(ChartConfig, ChartOptions, ChartDataset, data, name):
 def formatDataTeam(ChartConfig, ChartOptions, ChartDataset, data):
     chartConfig = createDonutChart("Workout Intensity Breakdown - Team", ChartConfig, ChartOptions)
     chartConfig = populateTeamDataset(data, ChartDataset, chartConfig)
+    return chartConfig.toJson()
+
+def formatDataBoat(ChartConfig, ChartOptions, ChartDataset, peopleManager, data, boat):
+    peopleToBoat = peopleManager.getPeopleToBoatDict(peopleManager.getPeople())
+    chartConfig = createDonutChart("Workout Intensity Breakdown - {}".format(boat), ChartConfig, ChartOptions)
+    chartConfig = populateBoatDataset(data, boat, peopleToBoat, ChartDataset, chartConfig)
     return chartConfig.toJson()

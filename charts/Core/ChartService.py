@@ -8,6 +8,9 @@ class ChartService:
     def getChartServiceName(self):
         return self.chartServiceName
 
+    def getParameters(self):
+        return self.parameters
+
     def __serializeParams(self):
         output = []
         for param in self.parameters:

@@ -26,10 +26,13 @@ def addBoatDatasets(data, xs, ColorHelper, ChartDataset, chartConfig):
         "4v+_metersPerDayPerPerson": "Avg Meters Per Day - 4v+"
     }
     for key in keysToNames.keys():
+        isHidden = True
+        if key == "universalAvg_metersPerDay":
+            isHidden = False
         dataset = ChartDataset()
         dataset.setLabel(keysToNames[key])
         dataset.setBorderWidth(2.5)
-        chartConfig.addDataset(populateDataset(dataset, data[key], xs, ColorHelper, False))
+        chartConfig.addDataset(populateDataset(dataset, data[key], xs, ColorHelper, isHidden))
     return chartConfig
 
 def addPersonDatasets(data, xs, ColorHelper, ChartDataset, chartConfig, name):
