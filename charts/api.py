@@ -20,6 +20,15 @@ productionReadyChartServices = [
     ChartService('individualContributions', 'individualContributions', 'Individual Contributions', [
         ChartServiceParams("name", False)
     ]),
+
+    ChartService('wattTrends', 'splitTrends', 'Watt Trends - Individual', [
+        ChartServiceParams("name", True)
+    ]),
+    ChartService('wattTrendsBoat', 'splitTrends', 'Watt Trends - Boat', [
+        ChartServiceParams("boat", True)
+    ]),
+    ChartService('wattTrendsTeam', 'splitTrends', 'Watt Trends - Team', []),
+
     ChartService('workoutIntensityBreakdown', 'intensityPercentages', 'Workout Intensity Breakdown - Individual', [
         ChartServiceParams("name", True)
     ]),
@@ -31,6 +40,10 @@ productionReadyChartServices = [
 
 def getService(teamCode, service):
     url = 'https://rows.tech/api/analysis?teamCode=' + str(teamCode) + '&service=' + str(service)
+    return json.loads(requests.get(url).text)
+
+def getPeopleData(teamCode):
+    url = 'https://rows.tech/api/people?teamCode={}'.format(teamCode)
     return json.loads(requests.get(url).text)
 
 @app.route('/', methods=['GET'])
@@ -56,6 +69,38 @@ def individualContributions():
     name = request.args.get('name')
     data = getService(teamCode, 'individualContributions')
     return IndividualContributions.formatData(ChartConfig, ChartOptions, ChartDataset, ColorHelper, data, name)
+
+@app.route('/wattTrends', methods=['GET'])
+def wattTrends():
+    from SplitTrends import SplitTrends
+    from Core import ColorHelper
+    from Core import SplitManager
+    teamCode = request.args.get('teamCode')
+    name = request.args.get('name')
+    data = getService(teamCode, 'splitTrends')
+    return SplitTrends.formatData(ChartConfig, ChartOptions, ChartDataset, ColorHelper, SplitManager, data, name)
+
+@app.route('/wattTrendsBoat', methods=['GET'])
+def wattTrendsBoat():
+    from SplitTrends import SplitTrends
+    from Core import BoatManager
+    from Core import ColorHelper
+    from Core import SplitManager
+    teamCode = request.args.get('teamCode')
+    boat = request.args.get('boat')
+    peopleData = getPeopleData(teamCode)
+    data = getService(teamCode, 'splitTrends')
+    return SplitTrends.formatDataBoat(ChartConfig, ChartOptions, ChartDataset, ColorHelper, SplitManager, BoatManager, data, boat, peopleData)
+
+@app.route('/wattTrendsTeam', methods=['GET'])
+def wattTrendsTeam():
+    from SplitTrends import SplitTrends
+    from Core import ColorHelper
+    from Core import SplitManager
+    teamCode = request.args.get('teamCode')
+    peopleData = getPeopleData(teamCode)
+    data = getService(teamCode, 'splitTrends')
+    return SplitTrends.formatDataTeam(ChartConfig, ChartOptions, ChartDataset, ColorHelper, SplitManager, data, peopleData)
 
 @app.route('/workoutIntensityBreakdown', methods=['GET'])
 def workoutIntensityBreakdown():

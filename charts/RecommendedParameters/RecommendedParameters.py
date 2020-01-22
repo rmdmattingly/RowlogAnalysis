@@ -14,6 +14,10 @@ def convertKey(serviceName, paramName):
 def instantiateParamOptions(teamCode):
     paramOptions = {}
     paramOptions[convertKey('individualContributions', 'name')] = getNames(teamCode)
+
+    paramOptions[convertKey('wattTrends', 'name')] = getNames(teamCode)
+    paramOptions[convertKey('wattTrendsBoat', 'boat')] = getBoats()
+    
     paramOptions[convertKey('workoutIntensityBreakdown', 'name')] = getNames(teamCode)
     paramOptions[convertKey('workoutIntensityBreakdownBoat', 'boat')] = getBoats()
     return paramOptions

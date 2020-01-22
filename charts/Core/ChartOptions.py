@@ -20,6 +20,7 @@ class ChartOptions:
                 }
             }]
         }
+        self.spanGaps = False
 
     def removeScales(self):
         self.scales = {}
@@ -27,11 +28,15 @@ class ChartOptions:
     def setTitleText(self, text):
         self.title["text"] = text
 
+    def setSpanGaps(self, spanGaps):
+        self.spanGaps = spanGaps
+
     def toJson(self):
         return {
             "responsive": self.responsive,
             "title": self.title,
             "tooltips": self.tooltips,
             "hover": self.hover,
-            "scales": self.scales
+            "scales": self.scales,
+            "spanGaps": self.spanGaps
         }
