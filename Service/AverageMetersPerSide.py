@@ -15,6 +15,8 @@ def findRowerSide(peopleData, people_id):
 def findSideAverageMeters(workoutData, peopleData, side):
     sideTotalMeters = 0
     sideTotalRowers = findNumberOfRowersOnSide(peopleData, side)
+    if sideTotalRowers == 0:
+      return 0
     for workout in workoutData:
         currentRowerSide = findRowerSide(peopleData, workout['people_id'])
         if currentRowerSide == side:
@@ -27,10 +29,15 @@ def findPortAvgMeters(workoutData, peopleData):
 def findStarboardAvgMeters(workoutData, peopleData):
     return findSideAverageMeters(workoutData, peopleData, 'starboard')
 
+def findCoxswainAvgMeters(workoutData, peopleData):
+    return findSideAverageMeters(workoutData, peopleData, 'coxswain')
+
 def run(workoutData, peopleData):
     output = {}
     output['port'] = findPortAvgMeters(workoutData, peopleData)
     output['starboard'] = findStarboardAvgMeters(workoutData, peopleData)
+    output['coxswain'] = findCoxswainAvgMeters(workoutData, peopleData)
     output['starboardCount'] = findNumberOfRowersOnSide(peopleData, 'starboard')
     output['portCount'] = findNumberOfRowersOnSide(peopleData, 'port')
+    output['coxswainCount'] = findNumberOfRowersOnSide(peopleData, 'coxswain')
     return output
