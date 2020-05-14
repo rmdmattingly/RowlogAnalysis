@@ -19,8 +19,12 @@ def getPortMeters(workoutData, peopleData):
 def getStarboardMeters(workoutData, peopleData):
     return getSideMeters(workoutData, peopleData, 'starboard')
 
+def getCoxswainMeters(workoutData, peopleData):
+    return getSideMeters(workoutData, peopleData, 'coxswain')
+
 def run(workoutData, peopleData):
     output = {}
     output['port'] = getPortMeters(workoutData, peopleData)
     output['starboard'] = getStarboardMeters(workoutData, peopleData)
+    output['coxswain'] = getCoxswainMeters(workoutData, peopleData)
     return output
