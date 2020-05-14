@@ -70,6 +70,14 @@ def ergMetersPerDay(args):
     from Service import ErgMetersPerDay
     return ErgMetersPerDay.run(getWorkoutData(teamCode=args.teamCode, orderBy='time', comment=''), Activities, DateManager)
 
+def ergMetersPerWeek(args):
+    from Core import DateManager
+    from Core.Activities import Activities
+    from Data.RowlogApi import getWorkoutData
+    from Service import ErgMetersPerDay
+    isWeek = True
+    return ErgMetersPerDay.run(getWorkoutData(teamCode=args.teamCode, orderBy='time', comment=''), Activities, DateManager, isWeek)
+
 def individualContributions(args):
     from Core import DateManager
     from Core.Activities import Activities
@@ -139,6 +147,7 @@ switcher = {
     'averageMetersPerWeekByBoat': averageMetersPerWeekByBoat,
     'averageSplitByBoat': averageSplitByBoat,
     'ergMetersPerDay': ergMetersPerDay,
+    'ergMetersPerWeek': ergMetersPerWeek,
     'invalidService': invalidService,
     'individualContributions': individualContributions,
     'intensityPercentages': intensityPercentages,

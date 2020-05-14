@@ -17,10 +17,13 @@ app.config["DEBUG"] = True
 ## NOTES: add workoutIntensityBreakdown recommended params then add to prod ready services
 ##
 productionReadyChartServices = [
+    # erg meters per week
+    ChartService('ergMetersPerWeek', 'ergMetersPerWeek', 'Erg Meters per Week - Team', []),
+    # individual contributions
     ChartService('individualContributions', 'individualContributions', 'Individual Contributions', [
         ChartServiceParams("name", False)
     ]),
-
+    # watt trends
     ChartService('wattTrends', 'splitTrends', 'Watt Trends - Individual', [
         ChartServiceParams("name", True)
     ]),
@@ -28,7 +31,7 @@ productionReadyChartServices = [
         ChartServiceParams("boat", True)
     ]),
     ChartService('wattTrendsTeam', 'splitTrends', 'Watt Trends - Team', []),
-
+    # workout intensity
     ChartService('workoutIntensityBreakdown', 'intensityPercentages', 'Workout Intensity Breakdown - Individual', [
         ChartServiceParams("name", True)
     ]),
@@ -60,6 +63,14 @@ def recommendedParameterOptions():
     teamCode = request.args.get('teamCode')
     service = request.args.get('service')
     return RecommendedParameters.getParameters(teamCode, service, productionReadyChartServices)
+
+@app.route('/ergMetersPerWeek', methods=['GET'])
+def individualContributions():
+    from ErgMetersPerWeek import ErgMetersPerWeek
+    from Core import ColorHelper
+    teamCode = request.args.get('teamCode')
+    data = getService(teamCode, 'ergMetersPerWeek')
+    return ErgMetersPerWeek.formatData(ChartConfig, ChartOptions, ChartDataset, ColorHelper, data)
 
 @app.route('/individualContributions', methods=['GET'])
 def individualContributions():
