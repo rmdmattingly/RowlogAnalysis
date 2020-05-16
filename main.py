@@ -6,6 +6,7 @@ from pprint import pprint
 def parseInput():
     from Core.ArgumentParser import createArgumentParser
     parser = createArgumentParser()
+    parser.add_argument("--seasonName", default="")
     return parser.parse_args()
 
 def runBasicTest(args, switcher):
@@ -161,6 +162,7 @@ switcher = {
 }
 
 def serviceSwitch(arguments):
+    print("season name: ", arguments.seasonName)
     service = switcher.get(arguments.service, invalidService)
     switcherRequired = ["basicTest", "getAvailableServices"]
     if arguments.service in switcherRequired:
