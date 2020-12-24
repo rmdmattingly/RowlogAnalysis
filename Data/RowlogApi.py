@@ -10,3 +10,8 @@ def getPeopleData(teamCode):
     url = 'https://rows.tech/api/people?teamCode=' + teamCode
     response = requests.get(url)
     return response.json()
+
+def getSquadData(teamCode, startDate):
+    url = 'https://rows.tech/api/squads?teamCode=' + teamCode + '&startDate=' + startDate
+    response = requests.get(url)
+    return response.json()
