@@ -2,7 +2,7 @@ def calculatePercentages(myData, squad):
     totalMeters = int(squad['squad_meters'])
     for member in squad['members']:
         memberMeters = int(member['person_meters'])
-        myData[squad['name']][member['name']] = ( memberMeters / totalMeters)
+        myData[squad['name']][member['name']] = ( memberMeters / totalMeters) * 100
     return myData
 
 def SquadContributions(squadData):
