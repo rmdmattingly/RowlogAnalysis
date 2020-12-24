@@ -118,6 +118,11 @@ def splitTrends(args):
     from Service import SplitTrends
     return SplitTrends.run(getWorkoutData(teamCode=args.teamCode, orderBy='wid', comment=''), SplitManager, DateManager)
 
+def squadContributions(args):
+    from Data.RowlogApi import getSquadData
+    from Service import SquadContributions
+    return SquadContributions.run(getSquadData(teamCode=args.teamCode, startDate=''))
+
 def typesOfWorkoutsPerPerson(args):
     from Core.Activities import Activities
     from Data.RowlogApi import getWorkoutData
@@ -156,6 +161,7 @@ switcher = {
     'percentOfMeters': percentOfMeters,
     'searchByComment': searchByComment,
     'splitTrends': splitTrends,
+    'squadContributions': squadContributions,
     'totalMetersPerSide': totalMetersPerSide,
     'typesOfWorkoutsPerPerson': typesOfWorkoutsPerPerson,
     'workoutsPerPerson': workoutsPerPerson
